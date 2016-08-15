@@ -1,0 +1,14 @@
+# Apple OS metadata
+.DS_Store
+Thumbs.db
+
+# dependencies directories
+node_modules
+bower_components
+
+# API keys and secrets
+.env
+
+# editors
+.idea
+*.iml
