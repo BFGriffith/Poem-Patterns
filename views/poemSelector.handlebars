@@ -1,0 +1,131 @@
+<!-- MAIN navigation MENU -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!-- fake / hidden checkbox used as click reciever for :checked selector -->
+      <input type="checkbox" />
+      <!-- hamburger spans -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/anthology">my ANTHOLOGY</a></li>
+        <!-- poetical forms -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title" id="poetical_forms_submenuTITLE"><a class="accordion-toggle" data-toggle="collapse" data-parent="#poetical_forms_submenu" href="#poetical_forms_submenu">poetical forms</a></h4>
+          </div>
+          <div id="poetical_forms_submenu" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul id="poetical_forms_submenuLIST">
+                <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+                <li><a href="/limerick">limerick</a></li>
+                <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <li><a href="/aboutPoementor">about “Poementor”</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <!-- navigation BREADCRUMBS -->
+    <div class="row">
+      <div class="col-xs-11">
+        <div class="btn-group btn-breadcrumb">
+          <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
+          <a href="/" class="btn btn-default">HOME</a>
+        </div>
+      </div>
+      <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+    </div>
+    <a href="/" id="logo_link"><img src="assets/images/PP_logo-sketch.png" alt="Poementor logo" height="42" width="42"></a>
+  </div>
+
+    <!-- POEM SELECTION Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+    <h1 class="text-center">poetical forms selection:</h1>
+    <!-- poetical forms LIST -->
+    <div class="list-group">
+      <a href="/haiku" class="list-group-item">haiku &#20467;&#21477;</a>
+      <a href="/limerick" class="list-group-item">limerick</a>
+      <a href="/shakespearean" class="list-group-item">Shakespearean sonnet</a>
+    </div>
+    <!-- poetical forms GRID -->
+    <div class="row">
+      <!-- haiku -->
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+        <div class="thumbnail">
+          <img src="assets/images/haiku_image.png" alt="haiku thumbnail">
+          <div class="caption">
+            <h3>haiku &#20467;&#21477;</h3>
+            <p>17 “morae” &mu;</p>
+            <p><a href="#" class="btn btn-default" role="button">read haiku</a>
+              <a href="#" class="btn btn-default" role="button">compose haiku</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- limerick -->
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+        <div class="thumbnail">
+          <img src="assets/images/limerick_leprechaun.png" alt="limerick thumbnail">
+          <div class="caption">
+            <h3>limerick</h3>
+            <p>anapestic</p>
+            <p><a href="#" class="btn btn-default" role="button">read limerick</a>
+              <a href="#" class="btn btn-default" role="button">compose limerick</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- Shakespearean sonnet -->
+      <div class="col-xs-12 col-sm-6 col-md-4 text-center">
+        <div class="thumbnail">
+          <img class="img-responsive" src="assets/images/Shakespeare_1609_portrait.jpg" alt="Shakespearean sonnet thumbnail">
+          <div class="caption">
+            <h3>Shakespearean sonnet</h3>
+            <p>iambic pentameter</p>
+            <p><a href="#" class="btn btn-default" role="button">read sonnet</a>
+              <a href="#" class="btn btn-default" role="button">compose sonnet</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- END poetical forms GRID -->
+    </div>
+    <!-- poetical forms TABLE -->
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="well table" id="poetical_forms_TABLE">
+          <thead>
+            <tr id="poetical_forms_TABLEhead">
+              <th>poetical forms:</th>
+              <th>traditionally predominant meter:</th>
+              <th>rhyme-scheme:</th>
+              <th>originating/popularizing culture:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>haiku &#20467;&#21477;</td>
+              <td>17 “morae” &mu;</td>
+              <td>none</td>
+              <td>Japanese</td>
+            </tr>
+            <tr>
+              <td>limerick</td>
+              <td>anapestic</td>
+              <td>AABBA</td>
+              <td>English</td>
+            </tr>
+            <tr>
+              <td>Shakespearean sonnet</td>
+              <td>iambic pentameter</td>
+              <td>ABAB CDCD EFEF GG</td>
+              <td>English</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+  </div>
+  <!-- END container -->
