@@ -30,6 +30,8 @@ var routes = require('./controllers/poementor.js');
 
 app.use('/', routes);
 
+require("./controllers/poetryAnthologiesController.js")(app);
+
 // listener (start application with node server.js) Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 app.listen(port);
 console.log("application listening on port " + port);
