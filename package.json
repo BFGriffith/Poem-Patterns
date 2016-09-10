@@ -1,6 +1,6 @@
 {
   "name": "Poementor",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "author": "BFGriffith",
   "description": "a “full-stack” web-application for aspiring poets and lyricists that streamlines composing, editing, annotating, storing, and sharing all sorts of verse — as well as providing dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.",
   "homepage": "https://github.com/BFGriffith/Poem-Patterns#readme",
