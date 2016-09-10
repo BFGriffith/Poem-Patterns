@@ -1,0 +1,246 @@
+// general styles: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+* {
+  font-family: 'Muli', sans-serif;
+}
+h1, h2, h3 {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+html,
+  body,
+  form, #welcomeHomepage {
+    background: url(../images/old-paper_texture.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+#Poementor_welcome_header {
+    text-align: center;
+    font-weight: bold;
+    font-weight: 5em;
+    text-shadow: 2px 2px 2px #87C02C;
+  }
+  /* navigation MENU styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none !important;
+  color: #777777;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #87C02D !important;
+}
+
+#menuToggle {
+  display: block;
+  position: relative;
+  top: 33px;
+  left: 20px;
+  z-index: 10;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 12;
+  /* place it over the hamburger */
+  -webkit-touch-callout: none;
+}
+/* hamburger styles */
+
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #87C02C;
+  border-radius: 3px;
+  z-index: 11;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+/* transform hamburger slices into X */
+
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+/* hide middle hamburger span in X */
+
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+/* reverse direction of last hamburger span in X */
+
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+/* absolute position: top left of the screen */
+
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 110px;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* prevent flickering of text in safari */
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menu li {
+  padding: 5px 0;
+  font-size: 1.5em;
+}
+/* fade in from the left */
+
+#menuToggle input:checked ~ ul {
+  transform: scale(1.0, 1.0);
+  opacity: 1;
+}
+/* END navigation MENU styles */
+#poetical_forms_submenu div ul li {
+    padding-left: 0 !important;
+    border-color: #DDDDDD !important;
+    list-style-type: none !important;
+  }
+
+/* BREADCRUMB styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+/* breadcrumb spacing */
+
+.btn-breadcrumb .btn {
+  padding: 6px 12px 6px 24px;
+}
+
+.btn-breadcrumb .btn:first-child {
+  padding: 6px 6px 6px 10px;
+}
+
+.btn-breadcrumb .btn:last-child {
+  padding: 6px 18px 6px 24px;
+}
+/* breadcrumb button styles */
+
+.btn-breadcrumb .btn.btn-default:not(:last-child):after {
+  border-left: 10px solid #fff;
+}
+
+.btn-breadcrumb .btn.btn-default:not(:last-child):before {
+  border-left: 10px solid #ccc;
+}
+
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
+  border-left: 10px solid #ebebeb;
+}
+
+.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
+  border-left: 10px solid #adadad;
+}
+/* END breadcrumbs */
+label {
+    color: #777777;
+  }
+
+  .panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';
+    /* essential for enabling glyphicon */
+    content: "\e114";
+    /* adjust as needed, taken from bootstrap.css */
+    float: left;
+    /* adjust as needed */
+    color: grey;
+    /* adjust as needed */
+  }
+
+  .panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";
+    /* adjust as needed, taken from bootstrap.css */
+  }
+
+  #want_write_poem {
+    text-align: center !important;
+  }
+
+  #Mentor_seated img {
+    text-align: center;
+    object-position: scale-down;
+    max-width: 100%;
+  }
+
+  #poetical_forms_submenuTITLE {
+    font-size: 1.5em;
+  }
+
+  #poetical_forms_submenuLIST li {
+    margin-left: -25px;
+    font-size: 1em;
+  }
+
+  #poetical_forms_TABLEhead {
+    font-weight: bold;
+    font-size: 1.5em;
+  }

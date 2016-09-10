@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+	<head>
+		<title>Poementor</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="description" content="a web-application for aspiring poets and lyricists that streamlines composing, editing, annotating, storing, and sharing all sorts of verse — as well as providing dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.">
+    <meta name="author" content="BFGriffith">
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Rajdhani:400,700,300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,400italic,300' rel='stylesheet' type='text/css'>
+		<!-- CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="/assets/styles/styles.css" type="text/css" />
+	</head>
+	<body>
+	  <!-- MAIN navigation MENU -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!-- fake / hidden checkbox used as click reciever for :checked selector -->
+      <input type="checkbox" />
+      <!-- hamburger spans -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">my ANTHOLOGY</a></li>
+        <!-- poetical forms -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title" id="poetical_forms_submenuTITLE"><a class="accordion-toggle" data-toggle="collapse" data-parent="#poetical_forms_submenu" href="#poetical_forms_submenu">poetical forms</a></h4>
+          </div>
+          <div id="poetical_forms_submenu" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul id="poetical_forms_submenuLIST">
+                <li><a href="#">haiku &#20467;&#21477;</a></li>
+                <li><a href="#">limerick</a></li>
+                <li><a href="#">Shakespearean sonnet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <li><a href="#">about “Poementor”</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <!-- navigation BREADCRUMBS -->
+    <div class="row">
+      <div class="col-xs-11">
+        <div class="btn-group btn-breadcrumb">
+          <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
+          <a href="#" class="btn btn-default">HOME</a>
+        </div>
+      </div>
+      <a href="#" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+    </div>
+    </div>
+		{{{ body }}}
+
+		<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script></script>
+	</body>
+</HTML>
