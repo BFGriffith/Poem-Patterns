@@ -1,0 +1,43 @@
+{
+  "name": "Poementor",
+  "version": "0.1.0",
+  "author": "BFGriffith",
+  "description": "a “full-stack” web-application for aspiring poets and lyricists that streamlines composing, editing, annotating, storing, and sharing all sorts of verse — as well as providing dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.",
+  "homepage": "https://github.com/BFGriffith/Poem-Patterns#readme",
+  "license": "SEE LICENSE IN license.md",
+  "bugs": {
+    "url": "https://github.com/BFGriffith/Poem-Patterns/issues"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": ">=0.12.2",
+    "npm": "3.8.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BFGriffith/Poem-Patterns.git"
+  },
+  "keywords": [
+    "jQuery",
+    "Node",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "body-parser"
+  ],
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "handlebars-helper-css": "^0.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^2.0.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.10",
+    "morgan": "^1.7.0"
+  }
+}

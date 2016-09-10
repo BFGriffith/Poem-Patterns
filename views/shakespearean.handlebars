@@ -1,0 +1,269 @@
+<!-- MAIN navigation MENU -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!-- fake / hidden checkbox used as click reciever for :checked selector -->
+      <input type="checkbox" />
+      <!-- hamburger spans -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/anthology">my ANTHOLOGY</a></li>
+        <!-- poetical forms -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title" id="poetical_forms_submenuTITLE"><a class="accordion-toggle" data-toggle="collapse" data-parent="#poetical_forms_submenu" href="#poetical_forms_submenu">poetical forms</a></h4>
+          </div>
+          <div id="poetical_forms_submenu" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul id="poetical_forms_submenuLIST">
+                <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+                <li><a href="/limerick">limerick</a></li>
+                <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <li><a href="/aboutPoementor">about “Poementor”</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <!-- navigation BREADCRUMBS -->
+    <div class="row">
+      <div class="col-xs-11">
+        <div class="btn-group btn-breadcrumb">
+          <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
+          <a href="/" class="btn btn-default">HOME</a>
+        </div>
+      </div>
+      <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+    </div>
+    </div>
+
+<!-- Shakespearean sonnet composer -->
+  <div class="container">
+    <h2 class="poemTitle text-center">{{Shakespearean_sonnetTitle}} <span><a href="#">&#128395;</a></span><span class="badge">Shakespearean sonnet</span></h2>
+    <hr>
+    <form class="form-horizontal" id="Shakespearean_sonnet_template">
+
+      <!-- Shakespearean sonnet line 1 — A -->
+      <label for="Shakespearean_sonnetLine1" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeA">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">1 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine1" placeholder="When to the sessions of sweet silent thought...">
+        <span class="input-group-addon">
+          <span class="badge">A</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeA" id="rhymeSchemeA1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 2 — B -->
+      <label for="Shakespearean_sonnetLine2" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeB">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">2 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine2" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">B</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeB" id="rhymeSchemeB1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 3 — A -->
+      <label for="Shakespearean_sonnetLine3" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeA">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">3 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine3" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">A</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeA" id="rhymeSchemeA2">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 4 — B -->
+      <label for="Shakespearean_sonnetLine4" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeB">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">4 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine4" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">B</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeB" id="rhymeSchemeB2">
+          <option>rhymes</option>
+        </select>
+      </div>
+
+      <br>
+
+      <!-- Shakespearean sonnet line 5 — C -->
+      <label for="Shakespearean_sonnetLine5" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeC">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">5 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine5" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">C</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeC" id="rhymeSchemeC1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 6 — D -->
+      <label for="Shakespearean_sonnetLine6" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeD">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">6 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine6" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">D</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeD" id="rhymeSchemeD1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 7 — C -->
+      <label for="Shakespearean_sonnetLine7" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeA">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">7 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine7" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">C</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeC" id="rhymeSchemeC2">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 8 — D -->
+      <label for="Shakespearean_sonnetLine8" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeD">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">8 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine8" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">D</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeD" id="rhymeSchemeD2">
+          <option>rhymes</option>
+        </select>
+      </div>
+
+      <br>
+
+      <!-- Shakespearean sonnet line 9 — E -->
+      <label for="Shakespearean_sonnetLine9" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeE">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">9 </span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine9" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">E</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeE" id="rhymeSchemeE1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 10 — F -->
+      <label for="Shakespearean_sonnetLine10" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeF">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">10</span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine10" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">F</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeF" id="rhymeSchemeF1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 11 — E -->
+      <label for="Shakespearean_sonnetLine11" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeE">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">11</span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine11" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">E</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeE" id="rhymeSchemeE2">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 12 — F -->
+      <label for="Shakespearean_sonnetLine12" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeF">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">12</span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine12" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">F</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeF" id="rhymeSchemeF2">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <br>
+      
+      <h4 style="color: #777777; text-align: center;">couplet:</h4>
+      <!-- Shakespearean sonnet line 13 — G -->
+      <label for="Shakespearean_sonnetLine13" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeF">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">13</span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine13" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">G</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeG" id="rhymeSchemeG1">
+          <option>rhymes</option>
+        </select>
+      </div>
+      <!-- Shakespearean sonnet line 14 — G -->
+      <label for="Shakespearean_sonnetLine14" class="metricalLine">iambic penameter: &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime; &cup;&prime;</label>
+      <label class="rhymeDropdownLabel" for="rhymeSchemeG">&#9998; rhymes</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">14</span>
+        <input type="text" class="form-control poemLine" id="Shakespearean_sonnetLine14" placeholder="">
+        <span class="input-group-addon">
+          <span class="badge">G</span>
+        <input type="checkbox" aria-label="line complete?">
+        </span>
+        <select class="form-control rhymeSchemeG" id="rhymeSchemeG2">
+          <option>rhymes</option>
+        </select>
+      </div>
+
+      <br>
+      <!-- POEM COMPOSITION BUTTONS -->
+      <div class="form-group row text-center poemComposerButtonsContainer">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-default">archive current version of poem</button>
+        </div>
+      </div>
+    </form>
+    <!-- Shakespearean SONNET tutorial -->
+    <div class="well">
+      <p>A sonnet is fundamentally a dialectical construct which allows the poet to examine the nature and ramifications of two usually contrasting ideas, emotions, states of mind, beliefs, actions, events, images, etc. &mdash; by juxtaposing the two against each other, and possibly resolving or just revealing the tensions created (and operating) between the two.</p>
+    </div>
+  </div>
