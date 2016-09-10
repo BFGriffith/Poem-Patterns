@@ -4,9 +4,11 @@ var mongoose = require('mongoose');
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/poetryAnthologies';
+    'mongodb://localhost:27017/poetryAnthologies';
 
-mongoose.connect(uristring, function (err, res) {
+console.log(uristring)
+
+mongoose.createConnection(uristring, function (err, res) {
       if (err) {
       console.log ('ERROR connecting to: ' + uristring + '. ' + err);
       } else {
@@ -14,7 +16,10 @@ mongoose.connect(uristring, function (err, res) {
       }
     });
 
+
+
 // SCHEMA Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+/*
 var poetSchema = new mongoose.Schema({
       name: {
         first: String,
@@ -24,6 +29,7 @@ var poetSchema = new mongoose.Schema({
       anthology: [],
       comments: [{ body: String, author: String, date: Date }]
     });
+*/
 
 // mongoose.connect('mongodb://localhost/poetryAnthologies');
 

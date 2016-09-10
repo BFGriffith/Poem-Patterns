@@ -9,7 +9,7 @@ var morgan   = require('morgan'); // log requests to the console (Express4)
 var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
 
 // configuration:
-//mongoose.connect(database.url); // connect to mongoDB database
+// mongoose.connect(database.url); // connect to mongoDB database
 
 app.use(express.static(__dirname + '/public')); // set the static files location
 
@@ -19,7 +19,7 @@ app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
 // override with POST having ?_method=DELETE
-//app.use(methodOverride('_method'))
+// app.use(methodOverride('_method'))
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
