@@ -15,7 +15,14 @@ html,
     -o-background-size: cover;
     background-size: cover;
   }
-
+.well,
+  .panel,
+  .panel-heading {
+    background-color: rgb(245, 245, 245);
+    background-color: rgba(245, 245, 245, 0.5) !important;
+    border-color: #B88147;
+    border-color: rgba(184, 129, 71, 0.8)
+  }
 #Poementor_welcome_header {
     text-align: center;
     font-weight: bold;

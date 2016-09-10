@@ -1,0 +1,186 @@
+<!-- MAIN navigation MENU -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!-- fake / hidden checkbox used as click reciever for :checked selector -->
+      <input type="checkbox" />
+      <!-- hamburger spans -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/anthology">my ANTHOLOGY</a></li>
+        <!-- poetical forms -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title" id="poetical_forms_submenuTITLE"><a class="accordion-toggle" data-toggle="collapse" data-parent="#poetical_forms_submenu" href="#poetical_forms_submenu">poetical forms</a></h4>
+          </div>
+          <div id="poetical_forms_submenu" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul id="poetical_forms_submenuLIST">
+                <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+                <li><a href="/limerick">limerick</a></li>
+                <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <li><a href="/aboutPoementor">about “Poementor”</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <!-- navigation BREADCRUMBS -->
+    <div class="row">
+      <div class="col-xs-11">
+        <div class="btn-group btn-breadcrumb">
+          <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
+          <a href="/" class="btn btn-default">HOME</a>
+        </div>
+      </div>
+      <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+    </div>
+    </div>
+
+  <!-- learn accentual-syllabic metrical-feet -->
+  <div class="container-fluid">
+    <br>
+    <div class="well">
+      <div class="row">
+        <h2 id="learn_metrical_feet_header"><span class="col-xs-12 col-md-5 col-md-offset-3">accentual-syllabic metrical “feet”</span>
+          <a href="/poemSelector" class="col-xs-12 col-md-3">&#9112;<span class="badge">Want to write a poem?</span>&#128395;</a>
+        </h2>
+      </div>
+      <br>
+    </div>
+    <!-- Metrical Feet — by Samuel Coleridge -->
+    <div class="well">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <p>If you ever have trouble remembering the names of accentual-syllabic metrical-feet, the following convenient poem can help!
+            <br>“Metrical Feet” by Samuel Coleridge is a classic mnemonic that illustrates each type of metrical-foot in addition to identifying it by name.</p>
+          <div style="text-align: center;">
+            <h4>Metrical Feet &mdash; by Samuel Coleridge</h4>
+            <div class="col-xs-12 col-md-6 col-md-offset-4" style="text-align: left;">
+              <p><strong>Trochee trips from long to short
+                <br> From long to long in solemn sort
+                <br> Slow spondee stalks; strong foot yet ill able
+                <br> Ever to run with the dactyl trisyllable.
+                <br> Iambics march from short to long.
+                <br> With a leap and a bound the swift anapests throng.
+                <br>
+              </strong></p>
+            </div>
+          </div>
+          <p class="col-xs-12">If one analyzes the meter of the poem, the metrical mnemonic is revealed. Each section that talks about a specific type of metrical “foot” actually uses that accentual-syllabic foot.</p>
+        </div>
+      </div>
+    </div>
+    <h2 style="text-align:center;">metrical “feet”</h2>
+    <!-- metrical-feet ACCORDION -->
+    <div class="row">
+      <div class="panel-group col-xs-12" id="metrical_feet_accordion">
+        <!-- iambic meter -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#metrical_feet_accordion" href="#collapseIAMBIC">
+          iambic meter (iamb / iambus): &cup;&prime;
+        </a>
+      </h4>
+          </div>
+          <div id="collapseIAMBIC" class="panel-collapse collapse in">
+            <div class="panel-body">
+              <p>a lightly stressed syllable followed by a more heavily stressed syllable</p>
+            </div>
+          </div>
+        </div>
+        <!-- anapestic meter -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#metrical_feet_accordion" href="#collapseANAPESTIC">
+          anapestic meter (anapest): &cup;&cup;&prime;
+        </a>
+      </h4>
+          </div>
+          <div id="collapseANAPESTIC" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p><b>two</b> lightly stressed syllables followed by a more heavily stressed syllable</p>
+            </div>
+          </div>
+        </div>
+        <!-- trochaic meter -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#metrical_feet_accordion" href="#collapseTROCHAIC">
+          trochaic meter (trochee): &prime;&cup;
+        </a>
+      </h4>
+          </div>
+          <div id="collapseTROCHAIC" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>a more heavily stressed syllable followed by a more lightly stressed syllable</p>
+            </div>
+          </div>
+        </div>
+        <!-- dactylic meter -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#metrical_feet_accordion" href="#collapseDACTYLIC">
+          dactylic meter (dactyl): &prime;&cup;&cup;
+        </a>
+      </h4>
+          </div>
+          <div id="collapseDACTYLIC" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p>one more heavily stressed syllable followed by <b>two</b> more lightly stressed syllable</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END accordion -->
+    <!-- tutorial: “rising” and “falling” meter + “masculine” and “feminine” endings -->
+    <h3 style="text-align: center;">“rising” and “falling” meter<br>“masculine” and “feminine” endings</h3>
+    <div class="well">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>Iambs and anapests, with their stronger stress at the end, are called “rising meter” &mdash; whereas trochees and dactyls, with their stronger stress at the beginning, are called “falling meter.”
+            <br>Additionally, if a line ends in a standard iamb, with a final stressed syllable, it’s said to have a “masculine” ending &mdash; whereas if an extra lightly stressed syllable is added to a line, it’s said to have a “feminine” ending.</p>
+        </div>
+      </div>
+    </div>
+    <!-- ACCORDION -->
+    <div class="row">
+      <div class="panel-group col-xs-12" id="morae_accordion">
+        <!-- panel -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+        <a class="accordion-toggle" data-toggle="collapse" data-parent="#morae_accordion" href="#collapse_morae">
+          mora (plural morae, often symbolized &mu;)
+        </a>
+      </h4>
+          </div>
+          <div id="collapse_morae" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ol>
+                <li>A syllable onset (the first consonant or consonants of the syllable) does not represent any mora.</li>
+                <li>The syllable nucleus represents one mora in the case of a short vowel, and two morae in the case of a long vowel or diphthong. Consonants serving as syllable nuclei also represent one mora if short and two if long. (Slovak is an example of a language that has both long and short consonantal nuclei.)</li>
+                <li>In some languages (for example, Japanese), the coda represents one mora, and in others (for example, Irish) it does not. In English, the codas of stressed syllables represent a mora (thus, the word cat is bimoraic), but for unstressed syllables it is not clear whether this is true (the second syllable of the word rabbit might be monomoraic).</li>
+                <li>In some languages, a syllable with a long vowel or diphthong in the nucleus and one or more consonants in the coda is said to be trimoraic (see pluti).</li>
+              </ol>
+              <ul>
+                <li>In general, monomoraic syllables are called “light syllables”, bimoraic syllables are called “heavy syllables”, and trimoraic syllables (in languages that have them) are called “superheavy syllables”... Some languages, such as Old English and present-day English, can have syllables with up to 4 morae.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END accordion -->
+  </div>
+  <!-- END container -->

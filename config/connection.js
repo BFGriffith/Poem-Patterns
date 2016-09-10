@@ -1,4 +1,7 @@
 // MongoDB: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+var mongoose = require('mongoose'); // mongoose for MongoDB
+
+mongoose.connect(database.url); // connect to mongoDB database
 
 connection.connect(function(err) {
     if (err) {

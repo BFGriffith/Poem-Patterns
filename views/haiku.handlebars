@@ -1,0 +1,89 @@
+<!-- MAIN navigation MENU -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <!-- fake / hidden checkbox used as click reciever for :checked selector -->
+      <input type="checkbox" />
+      <!-- hamburger spans -->
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/anthology">my ANTHOLOGY</a></li>
+        <!-- poetical forms -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title" id="poetical_forms_submenuTITLE"><a class="accordion-toggle" data-toggle="collapse" data-parent="#poetical_forms_submenu" href="#poetical_forms_submenu">poetical forms</a></h4>
+          </div>
+          <div id="poetical_forms_submenu" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul id="poetical_forms_submenuLIST">
+                <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+                <li><a href="/limerick">limerick</a></li>
+                <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <li><a href="/aboutPoementor">about “Poementor”</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <!-- navigation BREADCRUMBS -->
+    <div class="row">
+      <div class="col-xs-11">
+        <div class="btn-group btn-breadcrumb">
+          <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
+          <a href="/" class="btn btn-default">HOME</a>
+        </div>
+      </div>
+      <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+    </div>
+    </div>
+
+<!-- haiku composer -->
+  <div class="container">
+    <h2 class="poemTitle text-center">{{haikuTitle}} <span><a href="#">&#128395;</a></span><span class="badge">haiku &#20467;&#21477;</span></h2>
+
+    <form class="form-horizontal" id="haiku_template">
+      <!-- kaiku line 1 -->
+      <label for="haikuLine1" class="metricalLine">five “morae” (syllables)</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">1</span>
+        <input type="text" class="form-control poemLine" id="haiku_line1" placeholder="An old pond...">
+        <span class="input-group-addon"><input type="checkbox" aria-label="line complete?"></span>
+      </div>
+      <!-- kaiku line 2 -->
+      <label for="haikuLine2" class="metricalLine">seven “morae” (syllables)</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">2</span>
+        <input type="text" class="form-control poemLine" id="haiku_line2" placeholder="">
+        <span class="input-group-addon"><input type="checkbox" aria-label="line complete?"></span>
+      </div>
+      <!-- kaiku line 3 -->
+      <label for="haikuLine3" class="metricalLine">five “morae” (syllables)</label>
+      <div class="input-group col-xs-12">
+        <span class="input-group-addon">3</span>
+        <input type="text" class="form-control poemLine" id="haiku_line3" placeholder="">
+        <span class="input-group-addon"><input type="checkbox" aria-label="line complete?"></span>
+      </div>
+      <br>
+      <!-- POEM COMPOSITION BUTTONS -->
+      <div class="form-group row text-center poemComposerButtonsContainer">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-default">archive current version of poem</button>
+        </div>
+      </div>
+    </form>
+    <!-- limerick tutorial -->
+    <div class="well">
+      <p><b>Haiku</b> &#20467;&#21477; (plural also “haiku”) is a short form style of Japanese poem. Haiku written in Japanese are typically printed in a single vertical line, whereas English language haiku usually have three lines to parallel the three phrases of Japanese haiku. Haiku is a style of poetry that traditionally focuses on “cutting” (kuru &#64000;&#12427;) by juxtaposing two images or ideas with a kereji (“cutting word”) in between them which signals the separation, and may indicate or underscore how the juxtaposed elements are related.</p>
+      <ul>
+        <li>Traditional Japanese language haiku consist of 17 morae (often roughly translated as “syllables”), and written as three phrases of 5, 7, and 5.</li>
+        <li>Most, though not all, haiku involve nature; traditional haiku contain a “kigo” (“seasonal reference”) drawn from a saijiki, which is an extensive list of such words.</li>
+        <li>Even some modern haiku that buck tradition and don’t exactly follow the traditional structure or take nature as a major part of their subject still almost always tend to use juxtaposition, sometimes of directly observed everyday objects or occurrences.</li>
+        <li>Previously called hokku, haiku was given its current name by the Japanese writer Masaoka Shiki at the end of the 19th century</li>
+      </ul>
+    </div>
+  </div>
