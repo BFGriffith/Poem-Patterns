@@ -15,12 +15,13 @@ var LimerickSchema = new Schema({
         limerickLine4: String,
         limerickLine5: String,
       ]
-    }]
+    }],
+    poet: Object
   }],
   annotations: [{
     poemAnnotatedTitle: String,
     annotation: String,
-    user: Object
+    poet: Object
   }]
 });
 

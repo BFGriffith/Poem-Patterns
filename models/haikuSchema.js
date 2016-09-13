@@ -16,7 +16,7 @@ var HaikuSchema = new Schema({
   annotations: [{
     poemAnnotatedTitle: String,
     annotation: String,
-    user: Object
+    poet: Object
   }]
 });
 
