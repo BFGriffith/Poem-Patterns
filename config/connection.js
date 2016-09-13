@@ -1,14 +1,29 @@
 // MongoDB: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 var mongoose = require('mongoose'); // mongoose for MongoDB
+var request = require('request');
+var uristring =
+    process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost:27017/poetryAnthologies';
 
-mongoose.connect(database.url); // connect to mongoDB database
+console.log(uristring)
 
-connection.connect(function(err) {
-    if (err) {
-        console.error('error connecting: ' + err.stack);
-        return;
-    }
-    console.log('connected as id ' + connection.threadId);
-});
+mongoose.createConnection(uristring, function (err, res) {
+      if (err) {
+      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+      } else {
+      console.log ('Succeeded connected to: ' + uristring);
+      }
+    });
 
-module.exports = connection;
+// mongoose.connect(database.url); // connect to mongoDB database
+
+// connection.connect(function(err) {
+//     if (err) {
+//         console.error('error connecting: ' + err.stack);
+//         return;
+//     }
+//     console.log('connected as id ' + connection.threadId);
+// });
+
+// module.exports = connection;

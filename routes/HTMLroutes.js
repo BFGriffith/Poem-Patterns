@@ -66,19 +66,33 @@ module.exports = function(app){
 	});
 
 	//POSTs
-	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
-		res.redirect('/authenticated');
+	//	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
+	app.post('/signin', function(req, res){
+		// res.redirect('/authenticated');
+		//here make a function to searchd database that checks to see if that username exist
+		// if it does then check the password if the password is the same as the one in your database they are in.
+		//UserModel.find()
+
+		console.log(req.body);
 	});
 
 	app.post('/signup', function(req, res){
-		var user = new UserModel(req.body);
-		UserModel.saveUser(user, function(status){
-			if(!status) {
-				res.redirect('/signup')
-				return false
-			}
-			res.redirect('/');
-		});
+		//Here make the same function to check if the usename exist
+		// if is does then let them know its taken,
+		// if it doesnt then go head and make the account.
+
+    // var newUser = new UserModel({})
+    
+    // newUser.save = Mongoose function...
+		// var user = new UserModel(req.body);
+		// UserModel.saveUser(user, function(status){
+		// 	if(!status) {
+		// 		res.redirect('/signup')
+		// 		return false
+		// 	}
+		// 	res.redirect('/');
+		// });
+		console.log(req.body);
 	});
 
 };
