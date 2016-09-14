@@ -9,11 +9,11 @@ var LimerickSchema = new Schema({
   limericks: [{
     limerick: [{
       limerickStanza1: [
-        limerickLine1: String,
-        limerickLine2: String,
-        limerickLine3: String,
-        limerickLine4: String,
-        limerickLine5: String,
+        {limerickLine1: String},
+        {limerickLine2: String},
+        {limerickLine3: String},
+        {limerickLine4: String},
+        {limerickLine5: String},
       ]
     }],
     poet: Object

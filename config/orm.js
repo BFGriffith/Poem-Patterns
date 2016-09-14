@@ -1,4 +1,5 @@
 // ORM: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+/*
 var connection = require('./connection.js');
 
 function addUserToDB(userObj, callback) {
@@ -36,7 +37,7 @@ function findUser(username, callback) {
 
 module.exports.findUser = findUser;
 
-/*
+
 var orm {
 
 };

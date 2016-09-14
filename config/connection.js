@@ -1,6 +1,7 @@
 // MongoDB: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 var mongoose = require('mongoose'); // mongoose for MongoDB
 var request = require('request');
+
 var uristring =
     process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
@@ -16,6 +17,11 @@ mongoose.createConnection(uristring, function (err, res) {
       }
     });
 
+var db = mongoose.connection;
+
+db.once('open', function() {
+  console.log('Mongoose connection successful.')
+});
 // mongoose.connect(database.url); // connect to mongoDB database
 
 // connection.connect(function(err) {

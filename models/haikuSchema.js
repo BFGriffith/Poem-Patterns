@@ -8,10 +8,11 @@ var HaikuSchema = new Schema({
 	}],
 	haikuPoems: [{
     haiku: [
-      haikuLine1: String,
-      haikuLine2: String,
-      haikuLine3: String
-    ]
+      {haikuLine1: String},
+      {haikuLine2: String},
+      {haikuLine3: String}
+    ],
+    poet: Object
   }],
   annotations: [{
     poemAnnotatedTitle: String,
