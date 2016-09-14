@@ -2,21 +2,43 @@
 var request = require('request');
 var mongoose = require('mongoose');
 var uristring =
-    process.env.MONGOLAB_URI ||
-    process.env.MONGOHQ_URL ||
-    'mongodb://localhost:27017/poetryAnthologies';
+  process.env.MONGOLAB_URI ||
+  process.env.MONGOHQ_URL ||
+  'mongodb://localhost:27017/poetryAnthologies';
 
-console.log(uristring)
+console.log(uristring);
 
-mongoose.createConnection(uristring, function (err, res) {
-      if (err) {
-      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-      } else {
-      console.log ('Succeeded connected to: ' + uristring);
-      }
-    });
+mongoose.createConnection(uristring, function(err, res) {
+  if (err) {
+    console.log('ERROR connecting to: ' + uristring + '. ' + err);
+  } else {
+    console.log('Succeeded connected to: ' + uristring);
+  }
+});
 
 
+/*
+var source = $("#anthology_template").html();
+var anthologyTemplate = Handlebars.compile(source);
+
+var context = {
+  anthology: [{
+    poemTitle: "title",
+    poemBody: [
+      "line1",
+      "line2"
+    ]
+    annotations: {
+      body: "comment",
+      poemTitle: "Leaves of Grass",
+      author: "Walt",
+      date: ""
+    },
+  }]
+};
+
+$('#anthology_output').html(anthologyTemplate(context));
+*/
 
 // SCHEMA Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 /*
