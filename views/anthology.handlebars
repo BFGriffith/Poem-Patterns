@@ -1,0 +1,30 @@
+<!--
+{
+  anthology:[{
+    poemTitle:"title",
+    poemBody:[
+      "line1",
+      "line2"
+    ]
+    annotations:{
+      body: String, poemTitle: String, author: String, date: Date
+    },
+    
+  }]
+}
+-->
+<div class="row">
+  <div class="col-xs-12 col-md-10 col-md-offset-2 col-lg-6">
+    {{#each anthology}}
+
+      {{#each this.poemBody}}
+        {{@index}}: {{this}}
+      {{/each}}
+      key1: {{this.poemTitle}} <br/>
+      {{#each this.annotations}}
+        {{@key}}: {{this}}
+      {{/each}} <br/>
+      
+    {{/each}}
+  </div>
+</div>

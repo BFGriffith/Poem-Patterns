@@ -1,0 +1,126 @@
+<!-- MAIN navigation MENU -->
+<nav role="navigation">
+  <div id="menuToggle">
+    <!-- fake / hidden checkbox used as click reciever for :checked selector -->
+    <input type="checkbox" />
+    <!-- hamburger spans -->
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <li><a href="/">HOME</a></li>
+      <li><a href="/anthology">my ANTHOLOGY</a></li>
+      <!-- poetical forms -->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title" id="poetical_forms_submenuTITLE"><a class="accordion-toggle" data-toggle="collapse" data-parent="#poetical_forms_submenu" href="#poetical_forms_submenu">poetical forms</a></h4>
+        </div>
+        <div id="poetical_forms_submenu" class="panel-collapse collapse">
+          <div class="panel-body">
+            <ul id="poetical_forms_submenuLIST">
+              <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+              <li><a href="/limerick">limerick</a></li>
+              <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <li><a href="/aboutPoementor">about “Poementor”</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid">
+<!-- navigation BREADCRUMBS -->
+  <div class="row">
+    <div class="col-xs-11">
+      <div class="btn-group btn-breadcrumb">
+        <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
+        <a href="/" class="btn btn-default">HOME</a>
+      </div>
+    </div>
+    <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+  </div>
+</div>
+
+<!-- WELCOME Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+<div class="container-fluid" id="welcomeHomepage">
+  <h1 class="text-center" id="Poementor_welcome_header">WELCOME to “Poementor”</h1>
+  <!-- LOGGED-IN Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+  <p class="text-center">let your mentorship commence, {{username}}. <a class="text-center" href="/logout" class="btn btn-danger">LOGOUT?</a></p>
+    
+  <!-- MAIN CONTENT Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 img-responsive" id="Mentor_seated"><img src="assets/images/PoemMentor_image.png" alt="Mentor"></div>
+  </div>
+  <div class="well">
+    <div class="row">
+      <div class="col-xs-12">
+        <p><strong>“Poementor” is for aspiring poets and lyricists: to streamline composing, editing, annotating, storing, and sharing all sorts of verse &mdash; as well as provide dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.</strong></p>
+        <p id="want_write_poem"><a href="/poemSelector">&#9112;<span class="badge">Want to write a poem?</span>&#128395;</a></p>
+      </div>
+    </div>
+  </div>
+  <!-- navigation tabs »»——————————————————► -->
+  <div class="row">
+    <div class="col-xs-12">
+      <ul class="nav nav-tabs nav-center">
+        <li class="active"><a href="/">HOME</a></li>
+        <li><a href="/anthology">my ANTHOLOGY</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">poetical forms<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+            <li><a href="/limerick">limerick</a></li>
+            <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+          </ul>
+        </li>
+        <li><a href="/learnMetricalFeet">learn metrical “feet”</a></li>
+        <li><a href="/aboutPoementor">about “Poementor”</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 style="text-align: center;">currently supported poetical forms:</h3></div>
+    <div class="panel-body">
+      <p>Poementor strives to support an increasing variety of poetical forms, with the eventual goal of supporting most historically and traditionally popular forms.</p>
+    </div>
+  </div>
+  <!-- poetical forms TABLE -->
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="well table" id="poetical_forms_TABLE">
+        <thead>
+          <tr id="poetical_forms_TABLEhead">
+            <th>poetical forms:</th>
+            <th>traditionally predominant meter:</th>
+            <th>rhyme-scheme:</th>
+            <th>originating/popularizing culture:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>haiku &#20467;&#21477;</td>
+            <td>17 “morae” &mu;</td>
+            <td>none</td>
+            <td>Japanese</td>
+          </tr>
+          <tr>
+            <td>limerick</td>
+            <td>anapestic</td>
+            <td>AABBA</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td>Shakespearean sonnet</td>
+            <td>iambic pentameter</td>
+            <td>ABAB CDCD EFEF GG</td>
+            <td>English</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+</div>
+<!-- END container -->
