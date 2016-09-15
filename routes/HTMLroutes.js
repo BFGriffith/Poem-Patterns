@@ -104,17 +104,17 @@ module.exports = function(app) {
   });
 
   //POSTs
-  //	app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
+  //  app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
   app.post('/signin', function(req, res) {
-  	console.log(req.body);
+    console.log(req.body);
     // function authenticate(name, pass, fn) {
     //   db.Poet.findOne({ username: name }, function(err, user) {
     //     if (!user) return fn(new Error('cannot find that poet in our anthologies'));
     //     if (req.body.password !== Poet.password) {
-    //     	return fn(null, user);
+    //      return fn(null, user);
     //       fn(new Error('invalid password'));
     //     } else {
-    //     	res.sendFile(__dirname + '/public/views/authenticated.html');
+    //      res.sendFile(__dirname + '/public/views/authenticated.html');
     //     }
     //     })
     //   }
@@ -124,7 +124,7 @@ module.exports = function(app) {
     // if it does then check the password if the password is the same as the one in your database they are in.
     //UserModel.find()
 
-    
+
   });
 
   app.post('/signup', function(req, res) {
@@ -132,18 +132,13 @@ module.exports = function(app) {
     // if is does then let them know its taken,
     // if it doesnt then go head and make the account.
 
-    // var newUser = new UserModel({})
+    var userInfo = req.body;
+    var newUser = new UserModel(userInfo);
+    newUser.save(function (err, data) {
+      if (err) return console.error(err);
+      res.json(data);
+    });
 
-    // newUser.save = Mongoose function...
-    // var user = new UserModel(req.body);
-    // UserModel.saveUser(user, function(status){
-    // 	if(!status) {
-    // 		res.redirect('/signup')
-    // 		return false
-    // 	}
-    // 	res.redirect('/');
-    // });
-    console.log(req.body);
+
   });
-
 };
