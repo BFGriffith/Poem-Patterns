@@ -4,16 +4,24 @@ var mongoose = require('mongoose');
 var uristring =
   process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URL ||
-  'mongodb://localhost:27017/poetryAnthologies';
+    "mongodb://heroku_08glv1tz:lhsupj3l9jm1pmfpm6nij6s05t@ds033126.mlab.com:33126/heroku_08glv1tz";
 
 console.log(uristring);
 
-mongoose.createConnection(uristring, function(err, res) {
-  if (err) {
-    console.log('ERROR connecting to: ' + uristring + '. ' + err);
-  } else {
-    console.log('Succeeded connected to: ' + uristring);
-  }
+// mongoose.createConnection(uristring, function(err, res) {
+//   if (err) {
+//     console.log('ERROR connecting to: ' + uristring + '. ' + err);
+//   } else {
+//     console.log('Succeeded connected to: ' + uristring);
+//   }
+// });
+
+mongoose.connect(uristring);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+  console.log("we are connected");
 });
 
 
