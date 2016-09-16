@@ -1,4 +1,5 @@
 // USERS controller: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+
 function addUserToDB(userObj, callback){
 	connection.query('INSERT INTO tblUsers SET ?', userObj, function(err, results){
 		if (err) return callback(false, err)

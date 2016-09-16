@@ -1,32 +1,29 @@
 // dependencies: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 var express  = require('express');
+var path = require('path');
 var flash = require('connect-flash');
 var fs = require('fs');
 var app = express(); // create app with Express
-//var mongoose = require('mongoose'); // mongoose for MongoDB
 var port = process.env.PORT || 3000;
-//var database = require('./config/database'); // load the database config
 var morgan   = require('morgan'); // log requests to the console (Express4)
 var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
 var passport = require('passport');
 var session = require('express-session');
 // var orm = require('./config/orm.js');
 
-// CONFIG:
+// MongoDB CONFIG:
 require('./config/connection.js');
 
 // override with POST having ?_method=DELETE
 // app.use(methodOverride('_method'))
-var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main'
-}));
-app.set('view engine', 'handlebars');
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // MIDDLEWARE:
-app.use(morgan('dev')); // log requests to the console
-app.use(bodyParser.urlencoded({'extended':'false'})); // parse application/x-www-form-urlencoded
+// app.use(morgan('dev')); // log requests to the console
 app.use(bodyParser.json()); // parse application/json
+app.use(bodyParser.urlencoded()); // parse application/x-www-form-urlencoded
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
 // session is used to keep the user logged in:
@@ -44,11 +41,15 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 require('./routes/HTMLroutes.js')(app);
 require('./routes/APIroutes.js')(app);
 
-// CONTROLLERS: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
-require('./controllers/usersController.js');
-//require("./controllers/poetryAnthologiesController.js")(app);
+// MODELS:
+// app.use('/models/poet', users);
+// app.use('/models/poems', poems);
+// app.use('/models/annotations', annotations);
 
-// orm.connectToDB();
+
+// CONTROLLERS: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+// require('./controllers/usersController.js');
+// require("./controllers/poetryAnthologiesController.js")(app);
 
 // listener (start application with node server.js) Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 app.listen(port);
