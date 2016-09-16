@@ -1,4 +1,4 @@
-// var fs = require('fs');
+var fs = require('fs');
 //var passport = require('passport');
 //var LocalStrategy = require('passport-local').Strategy;
 // var orm = require('../config/orm.js');
@@ -10,8 +10,8 @@ var express = require('express');
 // fs.readdirSync(__dirname + '../models').forEach(function(filename){
 //   if (~filename.indexOf('.js')) require(__dirname + '../models/' + filename)
 // });
-var mongo = require('mongodb');
-var assert = require('assert');
+// var mongo = require('mongodb');
+// var assert = require('assert');
 require('../config/connection.js');
 
 var UserModel = require('../models/poet.js');
@@ -53,32 +53,32 @@ passport.deserializeUser(function(user, done) {
 module.exports = function(app) {
 
   app.get('/', function(req, res) {
-    res.render('index', {
+    res.render('pages/index', {
       actionBtn: 'signin',
       message: req.flash('error')[0],
       otherAction: "signup"
     });
   });
-  app.get('/anthology', function(req, res) {
-    res.render('anthology', {poems: poemsArray});
+  app.get('anthology', function(req, res) {
+    res.render('pages/anthology', {}); // {poems: poemsArray}
   });
-  app.get('/aboutPoementor', function(req, res) {
-    res.render('aboutPoementor', {});
+  app.get('aboutPoementor', function(req, res) {
+    res.render('pages/aboutPoementor', {});
   });
-  app.get('/poemSelector', function(req, res) {
-    res.render('poemSelector', {});
+  app.get('poemSelector', function(req, res) {
+    res.render('pages/poemSelector', {});
   });
-  app.get('/learnMetricalFeet', function(req, res) {
-    res.render('learnMetricalFeet', {});
+  app.get('learnMetricalFeet', function(req, res) {
+    res.render('pages/learnMetricalFeet', {});
   });
-  app.get('/haiku', function(req, res) {
-    res.render('haiku', {});
+  app.get('haiku', function(req, res) {
+    res.render('pages/haiku', {});
   });
   app.get('/limerick', function(req, res) {
-    res.render('limerick', {});
+    res.render('pages/limerick', {});
   });
   app.get('/shakespearean', function(req, res) {
-    res.render('shakespearean', {});
+    res.render('pages/shakespearean', {});
   });
 
   //GETs
@@ -124,7 +124,7 @@ module.exports = function(app) {
     })
   }); // END poetryAnthology
 
-  // POSTs
+  // poems
   app.post('/signin', function(req, res) {
     console.log(req.body);
 
@@ -181,6 +181,69 @@ module.exports = function(app) {
     res.redirect('/anthology');
   }); // END savePoem
 
+// POEMS Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+// app.get('/', function(req, res) {
+//   var poems = Poem.all();
+//   res.render('poems/index', {poems: poems});
+// });
+
+app.get('/newPoem', function(req, res) {
+  res.render('poems/newPoem');
+});
+
+// app.post('/', function(req, res) {
+//   res.status(404).send('create poem')
+// });
+
+// app.get('/:id', function(req, res) {
+//   var post = Poem.find( req.params.id );
+//   res.render('poems/show', {poem: poem});
+// });
+
+// app.get('/:id/edit', function(req, res) {
+//   var post = Post.find( req.params.id );
+//   res.render('poems/edit', {poem: poem});
+// });
+
+// app.put('/:id', function(req, res) {
+//   res.status(404).send('update poem: ' + req.params.id);
+// });
+
+// app.delete('/:id', function(req, res) {
+//   res.status(404).send('delete poem ' + req.params.id)
+// });
+// // ANNOTATIONS (comments) Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+// app.get('/:pid/comments', function(req, res) {
+//   res.status(404).send('all comments, post: ' + req.params.pid );
+// });
+
+// app.get('/:pid/comments/new', function(req, res) {
+//   res.status(404).send('new comment form, post: ' + req.params.pid);
+// });
+
+// app.post('/:pid/comments', function(req, res) {
+//   res.status(404).send('create comment, post: ' + req.params.pid)
+// });
+
+// app.get('/:pid/comments/:id', function(req, res) {
+//   res.status(404).send('show a comment, post: ' + req.params.id + 
+//                       ' comment: ' + req.params.pid);
+// });
+
+// app.get('/:pid/comments/:id/edit', function(req, res) {
+//   res.status(404).send('edit comment, post: ' + req.params.pid + 
+//                       ' comment: ' + req.params.id);
+// });
+
+// app.put('/:pid/comments/:id', function(req, res) {
+//   res.status(404).send('update commen, post: ' + req.params.pid + 
+//                       ' comment: ' + req.params.id);
+// });
+
+// app.delete('/:pid/comments/:id', function(req, res) {
+//   res.status(404).send('delete comment, post: ' + req.params.pid + 
+//                       ' comment: ' + req.params.id);
+// });
 
 // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 }; // END module.exports(app)

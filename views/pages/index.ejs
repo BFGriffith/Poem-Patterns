@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %> 
+  </head>
+<body>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js"></script>
+  <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <!-- MAIN navigation MENU -->
 <nav role="navigation">
   <div id="menuToggle">
@@ -39,50 +47,64 @@
         <a href="/" class="btn btn-default">HOME</a>
       </div>
     </div>
-    <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
+    <!-- <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a> -->
   </div>
 </div>
 
 <!-- WELCOME Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
 <div class="container-fluid" id="welcomeHomepage">
   <h1 class="text-center" id="Poementor_welcome_header">WELCOME to “Poementor”</h1>
-  <!-- LOGGED-IN Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
-  <p class="text-center">let your mentorship commence, {{username}}. <a class="text-center" href="/logout" class="btn btn-danger">LOGOUT?</a></p>
-    
-  <!-- MAIN CONTENT Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 img-responsive" id="Mentor_seated"><img src="assets/images/PoemMentor_image.png" alt="Mentor"></div>
+<!-- LOGIN Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+<form class="form-inline text-center">
+  <div class="form-group authInputs">
+    <input id="username" type="text" name="username" placeholder="username" />
   </div>
-  <div class="well">
-    <div class="row">
-      <div class="col-xs-12">
-        <p><strong>“Poementor” is for aspiring poets and lyricists: to streamline composing, editing, annotating, storing, and sharing all sorts of verse &mdash; as well as provide dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.</strong></p>
-        <p id="want_write_poem"><a href="/poemSelector">&#9112;<span class="badge">Want to write a poem?</span>&#128395;</a></p>
-      </div>
-    </div>
+  <div class="form-group authInputs">
+    <input id="password" type="password" name="password" placeholder="password" />
   </div>
-  <!-- navigation tabs »»——————————————————► -->
+  <div class="form-group text-center">
+    <a href="/signin" class="btn btn-info pull-center" id="submitUser">LOGIN</a>
+  </div>
+  <div class="form-group text-center">
+    <a href="/signup" class="btn btn-success pull-center" id="createUser">SIGNUP</a>
+  </div>
+</form>
+<br />
+<!-- MAIN CONTENT Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 img-responsive" id="Mentor_seated"><img src="assets/images/PoemMentor_image.png" alt="Mentor"></div>
+</div>
+<div class="well">
   <div class="row">
     <div class="col-xs-12">
-      <ul class="nav nav-tabs nav-center">
-        <li class="active"><a href="/">HOME</a></li>
-        <li><a href="/anthology">my ANTHOLOGY</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">poetical forms<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
-            <li><a href="/limerick">limerick</a></li>
-            <li><a href="/shakespearean">Shakespearean sonnet</a></li>
-          </ul>
-        </li>
-        <li><a href="/learnMetricalFeet">learn metrical “feet”</a></li>
-        <li><a href="/aboutPoementor">about “Poementor”</a></li>
-      </ul>
+      <p><strong>“Poementor” is for aspiring poets and lyricists: to streamline composing, editing, annotating, storing, and sharing all sorts of verse &mdash; as well as provide dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.</strong></p>
+      <p id="want_write_poem"><a href="/poemSelector">&#9112;<span class="badge">Want to write a poem?</span>&#128395;</a></p>
     </div>
   </div>
+</div>
+<!-- navigation tabs »»——————————————————► -->
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs centeredNav" id="navigationTabs">
+      <li class="active"><a href="/">HOME</a></li>
+      <li><a href="/anthology">my ANTHOLOGY</a></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">poetical forms<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/haiku">haiku &#20467;&#21477;</a></li>
+          <li><a href="/limerick">limerick</a></li>
+          <li><a href="/shakespearean">Shakespearean sonnet</a></li>
+        </ul>
+      </li>
+      <li><a href="/learnMetricalFeet">learn metrical “feet”</a></li>
+      <li><a href="/aboutPoementor">about “Poementor”</a></li>
+    </ul>
+  </div>
+</div>
   <div class="panel panel-default">
     <div class="panel-heading">
-      <h3 style="text-align: center;">currently supported poetical forms:</h3></div>
+      <h3 class="text-center">currently supported poetical forms:</h3>
+    </div>
     <div class="panel-body">
       <p>Poementor strives to support an increasing variety of poetical forms, with the eventual goal of supporting most historically and traditionally popular forms.</p>
     </div>
@@ -125,3 +147,6 @@
   <!-- Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
 </div>
 <!-- END container -->
+  <script type="text/javascript" src="/assets/scripts/userController.js"></script>
+</body>
+</html>
