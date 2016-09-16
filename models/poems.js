@@ -5,8 +5,10 @@ var Schema = mongoose.Schema;
 var PoemSchema = new Schema({
   _creator: [{ type: Number, ref: 'User' }],
   poemTitle: { type: String, default: "untitled" },
+  poeticalForm: String,
   poemText: { type: Array, required: true },
   date: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('poem', PoemSchema);
+var Poem = mongoose.model('poems', PoemSchema)
+module.exports = Poem;

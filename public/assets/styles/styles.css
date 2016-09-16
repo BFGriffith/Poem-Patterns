@@ -1,4 +1,4 @@
-// general styles: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+/* general styles: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
 * {
   font-family: 'Muli', sans-serif;
 }
@@ -29,7 +29,9 @@ form,
   border-color: rgba(184, 129, 71, 0.8)
 }
 
-#Poementor_welcome_header {
+#Poementor_welcome_header,
+#Poementor_about_header,
+#Poementor_anthology_header {
   text-align: center;
   font-weight: bold;
   font-weight: 5em;
@@ -37,7 +39,9 @@ form,
 }
 
 
-/* navigation MENU styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+/**
+ * navigation MENU styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+ */
 
 body {
   margin: 0;
@@ -169,7 +173,9 @@ a:hover {
 }
 
 
-/* BREADCRUMB styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+/**
+ * BREADCRUMB styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+ */
 
 .btn-breadcrumb .btn:not(:last-child):after {
   content: " ";
@@ -271,7 +277,9 @@ label {
   max-width: 100%;
 }
 
-#poetical_forms_submenu { border-color: #ddd !important; }
+#poetical_forms_submenu {
+  border-color: #ddd !important;
+}
 
 #poetical_forms_submenuTITLE {
   font-size: 1.5em;
@@ -281,7 +289,24 @@ label {
   margin-left: -25px;
   font-size: 1em;
 }
-
+.nav-tabs.centeredNav > li, .nav-pills.centeredNav > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+.nav-tabs.centeredNav, .nav-pills.centeredNav {
+    text-align:center;
+}
+#navigationTabs{
+  border-bottom: none;
+}
+.well.table {
+  z-index: 20;
+  border: 3px solid #B88147;
+  border-radius: 3px;
+  
+}
 #poetical_forms_TABLEhead {
   font-weight: bold;
   font-size: 1.5em;

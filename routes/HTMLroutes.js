@@ -1,18 +1,24 @@
 // var fs = require('fs');
-var UserModel = require('../models/poet.js');
 //var passport = require('passport');
 //var LocalStrategy = require('passport-local').Strategy;
 // var orm = require('../config/orm.js');
-var database = require('../controllers/poetryAnthologiesController.js');
 // var db = mongoose(uristring, ['poets']);
 
 // ROUTES: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 var express = require('express');
-var poems = require('../models/poems.js');
 // load all Mongoose Schemas in the models directory
 // fs.readdirSync(__dirname + '../models').forEach(function(filename){
 //   if (~filename.indexOf('.js')) require(__dirname + '../models/' + filename)
 // });
+var mongo = require('mongodb');
+var assert = require('assert');
+require('../config/connection.js');
+
+var UserModel = require('../models/poet.js');
+var PoemModel = require('../models/poems.js');
+
+// var database = require('../controllers/poetryAnthologiesController.js');
+
 
 //Setting the strategy for Passport
 /*
@@ -54,7 +60,7 @@ module.exports = function(app) {
     });
   });
   app.get('/anthology', function(req, res) {
-    res.render('anthology', {});
+    res.render('anthology', {poems: poemsArray});
   });
   app.get('/aboutPoementor', function(req, res) {
     res.render('aboutPoementor', {});
@@ -103,7 +109,22 @@ module.exports = function(app) {
     res.redirect('/');
   });
 
-  //POSTs
+  app.get('poetryAnthology', function(req, res, next){
+    var poemsArray = [];
+    mongo.connect(uristring, function(err, db){
+      assert.equal(null, err);
+      var cursor = db.collection('poems').find();
+      cursor.forEach(function(doc, err){
+        assert.equal(null, err);
+        poemsArray.push(doc);
+      }, function(){
+        db.close();
+        res.render('anthology', {poems: poemsArray});
+      });
+    })
+  }); // END poetryAnthology
+
+  // POSTs
   app.post('/signin', function(req, res) {
     console.log(req.body);
 
@@ -136,7 +157,6 @@ module.exports = function(app) {
   }); // END signin
 
   app.post('/signup', function(req, res) {
-
     //Here make the same function to check if the username exist
     // if is does then let them know its taken,
     // if it doesnt then go head and make the account.
@@ -150,4 +170,17 @@ module.exports = function(app) {
 
   }); // END signup
 
+  app.post('/savePoem', function(req, res, next){
+    var poemInfo = req.body;
+    console.log(req.body);
+    var newPoem = new PoemModel(poemInfo);
+    newPoem.save(function(err, data){
+      if (err) return console.error(err);
+      res.json(data);
+    });
+    res.redirect('/anthology');
+  }); // END savePoem
+
+
+// Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 }; // END module.exports(app)
