@@ -2,34 +2,43 @@
 * {
   font-family: 'Muli', sans-serif;
 }
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   font-family: 'Rajdhani', sans-serif;
 }
 
 html,
-  body,
-  form, #welcomeHomepage {
-    background: url(../images/old-paper_texture.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+body,
+form,
+#welcomeHomepage {
+  background: url(../images/old-paper_texture.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .well,
-  .panel,
-  .panel-heading {
-    background-color: rgb(245, 245, 245);
-    background-color: rgba(245, 245, 245, 0.5) !important;
-    border-color: #B88147;
-    border-color: rgba(184, 129, 71, 0.8)
-  }
+.panel,
+.panel-heading {
+  background-color: rgb(245, 245, 245);
+  background-color: rgba(245, 245, 245, 0.5) !important;
+  border-color: #B88147;
+  border-color: rgba(184, 129, 71, 0.8)
+}
+
 #Poementor_welcome_header {
-    text-align: center;
-    font-weight: bold;
-    font-weight: 5em;
-    text-shadow: 2px 2px 2px #87C02C;
-  }
-  /* navigation MENU styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+  text-align: center;
+  font-weight: bold;
+  font-weight: 5em;
+  text-shadow: 2px 2px 2px #87C02C;
+}
+
+
+/* navigation MENU styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+
 body {
   margin: 0;
   padding: 0;
@@ -69,6 +78,8 @@ a:hover {
   /* place it over the hamburger */
   -webkit-touch-callout: none;
 }
+
+
 /* hamburger styles */
 
 #menuToggle span {
@@ -91,6 +102,8 @@ a:hover {
 #menuToggle span:nth-last-child(2) {
   transform-origin: 0% 100%;
 }
+
+
 /* transform hamburger slices into X */
 
 #menuToggle input:checked ~ span {
@@ -98,18 +111,24 @@ a:hover {
   transform: rotate(45deg) translate(-2px, -1px);
   background: #232323;
 }
+
+
 /* hide middle hamburger span in X */
 
 #menuToggle input:checked ~ span:nth-last-child(3) {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
+
+
 /* reverse direction of last hamburger span in X */
 
 #menuToggle input:checked ~ span:nth-last-child(2) {
   opacity: 1;
   transform: rotate(-45deg) translate(0, -1px);
 }
+
+
 /* absolute position: top left of the screen */
 
 #menu {
@@ -131,20 +150,27 @@ a:hover {
   padding: 5px 0;
   font-size: 1.5em;
 }
+
+
 /* fade in from the left */
 
 #menuToggle input:checked ~ ul {
   transform: scale(1.0, 1.0);
   opacity: 1;
 }
+
+
 /* END navigation MENU styles */
+
 #poetical_forms_submenu div ul li {
-    padding-left: 0 !important;
-    border-color: #DDDDDD !important;
-    list-style-type: none !important;
-  }
+  padding-left: 0 !important;
+  border-color: #DDDDDD !important;
+  list-style-type: none !important;
+}
+
 
 /* BREADCRUMB styles Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> */
+
 .btn-breadcrumb .btn:not(:last-child):after {
   content: " ";
   display: block;
@@ -175,6 +201,8 @@ a:hover {
   left: 100%;
   z-index: 3;
 }
+
+
 /* breadcrumb spacing */
 
 .btn-breadcrumb .btn {
@@ -188,6 +216,8 @@ a:hover {
 .btn-breadcrumb .btn:last-child {
   padding: 6px 18px 6px 24px;
 }
+
+
 /* breadcrumb button styles */
 
 .btn-breadcrumb .btn.btn-default:not(:last-child):after {
@@ -205,49 +235,54 @@ a:hover {
 .btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
   border-left: 10px solid #adadad;
 }
+
+
 /* END breadcrumbs */
+
 label {
-    color: #777777;
-  }
+  color: #777777;
+}
 
-  .panel-heading .accordion-toggle:after {
-    /* symbol for "opening" panels */
-    font-family: 'Glyphicons Halflings';
-    /* essential for enabling glyphicon */
-    content: "\e114";
-    /* adjust as needed, taken from bootstrap.css */
-    float: left;
-    /* adjust as needed */
-    color: grey;
-    /* adjust as needed */
-  }
+.panel-heading .accordion-toggle:after {
+  /* symbol for "opening" panels */
+  font-family: 'Glyphicons Halflings';
+  /* essential for enabling glyphicon */
+  content: "\e114";
+  /* adjust as needed, taken from bootstrap.css */
+  float: left;
+  /* adjust as needed */
+  color: grey;
+  /* adjust as needed */
+}
 
-  .panel-heading .accordion-toggle.collapsed:after {
-    /* symbol for "collapsed" panels */
-    content: "\e080";
-    /* adjust as needed, taken from bootstrap.css */
-  }
+.panel-heading .accordion-toggle.collapsed:after {
+  /* symbol for "collapsed" panels */
+  content: "\e080";
+  /* adjust as needed, taken from bootstrap.css */
+}
 
-  #want_write_poem {
-    text-align: center !important;
-  }
+#want_write_poem {
+  text-align: center !important;
+}
 
-  #Mentor_seated img {
-    text-align: center;
-    object-position: scale-down;
-    max-width: 100%;
-  }
+#Mentor_seated img {
+  text-align: center;
+  object-position: scale-down;
+  max-width: 100%;
+}
 
-  #poetical_forms_submenuTITLE {
-    font-size: 1.5em;
-  }
+#poetical_forms_submenu { border-color: #ddd !important; }
 
-  #poetical_forms_submenuLIST li {
-    margin-left: -25px;
-    font-size: 1em;
-  }
+#poetical_forms_submenuTITLE {
+  font-size: 1.5em;
+}
 
-  #poetical_forms_TABLEhead {
-    font-weight: bold;
-    font-size: 1.5em;
-  }
+#poetical_forms_submenuLIST li {
+  margin-left: -25px;
+  font-size: 1em;
+}
+
+#poetical_forms_TABLEhead {
+  font-weight: bold;
+  font-size: 1.5em;
+}

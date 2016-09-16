@@ -36,11 +36,4 @@ function findUser(username, callback) {
 }; // END findUser()
 
 module.exports.findUser = findUser;
-
-
-var orm {
-
-};
-
-module.exports = orm;
 */

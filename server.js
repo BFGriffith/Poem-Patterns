@@ -2,9 +2,9 @@
 var express  = require('express');
 var flash = require('connect-flash');
 var fs = require('fs');
-var app      = express(); // create app with Express
+var app = express(); // create app with Express
 //var mongoose = require('mongoose'); // mongoose for MongoDB
-var port  	 = process.env.PORT || 3000;
+var port = process.env.PORT || 3000;
 //var database = require('./config/database'); // load the database config
 var morgan   = require('morgan'); // log requests to the console (Express4)
 var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
@@ -12,8 +12,8 @@ var passport = require('passport');
 var session = require('express-session');
 // var orm = require('./config/orm.js');
 
-// configuration:
-// mongoose.connect(database.url); // connect to mongoDB database
+// CONFIG:
+require('./config/connection.js');
 
 // override with POST having ?_method=DELETE
 // app.use(methodOverride('_method'))
@@ -41,11 +41,12 @@ app.use(passport.session());
 
 app.use(express.static(__dirname + '/public')); // set the static files location
 // ROUTES: »»——————————————————►
-var routes = require('./controllers/poementor.js');
-app.use('/', routes);
 require('./routes/HTMLroutes.js')(app);
+require('./routes/APIroutes.js')(app);
 
-require("./controllers/poetryAnthologiesController.js")(app);
+// CONTROLLERS: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+require('./controllers/usersController.js');
+//require("./controllers/poetryAnthologiesController.js")(app);
 
 // orm.connectToDB();
 
