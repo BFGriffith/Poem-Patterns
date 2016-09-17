@@ -31,9 +31,24 @@ $(document).ready(function() {
         return las;
       }
 
-
       setTimeout(function(las) {
-        var rhymeQueryString = "http://rhymebrain.com/talk?function=getRhymes&word=" + las + "&lang=en&jsonp=";
+        $.getJSON(("http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las + "?callback=?"), function(json) {
+          console.log(json);
+        });
+        /*
+          function logResults(json) {
+            console.log(json);
+          }
+          var rhymeQueryString = "http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las;
+          $.ajax({
+            url: rhymeQueryString,
+            dataType: "jsonp",
+            jsonpCallback: "logResults"
+          });
+          */
+
+        /*
+        var rhymeQueryString = "http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las;
 
         $.ajax({
           method: "GET",
@@ -47,6 +62,8 @@ $(document).ready(function() {
           //var rhymeAPIresponse = JSON.parse(data);
           //console.log(rhymeAPIresponse);
         });
+        */
+
       }, 1000);
 
     } else {
