@@ -63,8 +63,11 @@
           <div class="caption">
             <h3>haiku &#20467;&#21477;</h3>
             <p>17 “morae” &mu;</p>
-            <p><a href="#" class="btn btn-default" role="button">read haiku</a>
-              <a href="#" class="btn btn-default" role="button">compose haiku</a></p>
+            <form class="form-horizontal" id="newHaiku_creator" method="POST" action="/haiku">
+            <input type="text" class="form-control text-center poemTitleCreator" id="newHaikuTitle_input" placeholder="title for new haiku">
+            <p style="background-color: #FFFFFF;"><br><a href="/anthology" class="btn btn-default" role="button">read haiku</a>
+            <button class="btn btn-default" role="button" type="submit">compose haiku</button></p>
+            </form>
           </div>
         </div>
       </div>
@@ -75,8 +78,11 @@
           <div class="caption">
             <h3>limerick</h3>
             <p>anapestic</p>
-            <p><a href="#" class="btn btn-default" role="button">read limerick</a>
-              <a href="#" class="btn btn-default" role="button">compose limerick</a></p>
+            <form class="form-horizontal" id="newLimerick_creator" method="POST" action="/limerick">
+            <input type="text" class="form-control text-center poemTitleCreator" id="newLimerickTitle_input" placeholder="title for new limerick">
+            <p style="background-color: #FFFFFF;"><br><a href="/anthology" class="btn btn-default" role="button">read limericks</a>
+            <button class="btn btn-default" role="button" type="submit">compose limerick</button></p>
+            </form>
           </div>
         </div>
       </div>
@@ -87,8 +93,11 @@
           <div class="caption">
             <h3>Shakespearean sonnet</h3>
             <p>iambic pentameter</p>
-            <p><a href="#" class="btn btn-default" role="button">read sonnet</a>
-              <a href="#" class="btn btn-default" role="button">compose sonnet</a></p>
+            <form class="form-horizontal" id="newShakespearean_creator" method="POST" action="/shakespearean">
+            <input type="text" class="form-control text-center poemTitleCreator" id="newShakespeareanTitle_input" placeholder="title for new Shakespearean sonnet">
+            <p style="background-color: #FFFFFF;"><br><a href="/anthology" class="btn btn-default" role="button">read sonnets</a>
+            <button class="btn btn-default" role="button" type="submit">compose sonnet</button></p>
+            </form>
           </div>
         </div>
       </div>
