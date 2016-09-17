@@ -5,7 +5,7 @@ module.exports = function(app) {
   // rhymes
   app.post('/getRhymes', function(req, res, next) {
   	console.log(req.body);
-    request('http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=' + req.body.word, function(error, response, body) {
+    request('http://rhymebrain.com/talk?function=getRhymes&lang=en&word=' + req.body.word, function(error, response, body) {
       if (error) {
         return console.log('Error:', error);
       }

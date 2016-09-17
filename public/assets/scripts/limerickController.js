@@ -46,9 +46,19 @@ $(document).ready(function() {
             data: { word: las }
           })
           .done(function(data) {
-            // console.log(data);
+            console.log(data);
             var rhymeSchemeResultsA = data;
-            console.log(rhymeSchemeResultsA);
+
+            var parsedRhymeSchemeResultsA = jQuery.parseJSON(rhymeSchemeResultsA);
+            console.log(typeof parsedRhymeSchemeResultsA);
+            console.log(parsedRhymeSchemeResultsA);
+
+            var rhymeSchemeResultsA_dropdown = '';
+            for (var i = 0; i < parsedRhymeSchemeResultsA.length; i++) {
+              console.log(parsedRhymeSchemeResultsA[i]);
+              rhymeSchemeResultsA_dropdown += '<option value="' + parsedRhymeSchemeResultsA[i].word + '">' + parsedRhymeSchemeResultsA[i].word + '</option>';
+            }
+            $('#rhymeSchemeA2').append(rhymeSchemeResultsA_dropdown);
 
           });
 
