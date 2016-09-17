@@ -18,6 +18,20 @@ module.exports = function(app) {
     }); // END request
   }); // END app.get
 
+app.post('/getRhymesB', function(req, res, next) {
+  	console.log(req.body);
+    request('http://rhymebrain.com/talk?function=getRhymes&lang=en&word=' + req.body.wordB, function(error, response, body) {
+      if (error) {
+        return console.log('Error:', error);
+      }
+      // check for status code
+      if (response.statusCode !== 200) {
+        return console.log('Invalid status-code returned: ', response.statusCode);
+      }
+      console.log(body);
+       res.send(body);
+    }); // END request
+  }); // END app.get
 
   // app.get('/getRhymes', function(req, res) {
   //   req.logout();

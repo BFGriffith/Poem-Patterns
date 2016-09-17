@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  console.log("ready!");
+  //console.log("ready!");
   $("#limerick_stanzaLine1checkbox").change(function() {
     if ($(this).prop('checked') === true) {
 
@@ -25,13 +25,13 @@ $(document).ready(function() {
         .keyup(function() {
           var value = $(this).val();
           console.log(value);
-          $("#testing").text(value);
+          $("#testingA").text(value);
         })
         .keyup();
 
       function lastWordOfLine() {
         return new Promise(function(res, rej) {
-          var last_arr = $('#testing').text().split(' ');
+          var last_arr = $('#testingA').text().split(' ');
           var las = last_arr[last_arr.length - 1];
           res(las);
         });
@@ -48,59 +48,89 @@ $(document).ready(function() {
           .done(function(data) {
             console.log(data);
             var rhymeSchemeResultsA = data;
-
             var parsedRhymeSchemeResultsA = jQuery.parseJSON(rhymeSchemeResultsA);
-            console.log(typeof parsedRhymeSchemeResultsA);
-            console.log(parsedRhymeSchemeResultsA);
-
+            // console.log(typeof parsedRhymeSchemeResultsA);
+            // console.log(parsedRhymeSchemeResultsA);
             var rhymeSchemeResultsA_dropdown = '';
             for (var i = 0; i < parsedRhymeSchemeResultsA.length; i++) {
               console.log(parsedRhymeSchemeResultsA[i]);
               rhymeSchemeResultsA_dropdown += '<option value="' + parsedRhymeSchemeResultsA[i].word + '">' + parsedRhymeSchemeResultsA[i].word + '</option>';
             }
+            $('#rhymeSchemeA1').append(rhymeSchemeResultsA_dropdown);
             $('#rhymeSchemeA2').append(rhymeSchemeResultsA_dropdown);
-
-          });
-
-
-
-        // $.getJSON(("http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las + "?callback=?"), function(json) {
-        //   console.log(json);
-        // });
-        /*
-          function logResults(json) {
-            console.log(json);
-          }
-          var rhymeQueryString = "http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las;
-          $.ajax({
-            url: rhymeQueryString,
-            dataType: "jsonp",
-            jsonpCallback: "logResults"
-          });
-          */
-
-        /*
-        var rhymeQueryString = "http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las;
-
-        $.ajax({
-          method: "GET",
-          url: rhymeQueryString
-        })
-        // $.ajax(settings).done(function(response) {
-        //   console.log(response);
-        // });
-        .done(function(data) {
-          console.log("Data Saved: " + data);
-          //var rhymeAPIresponse = JSON.parse(data);
-          //console.log(rhymeAPIresponse);
-        });
-        */
-
-
-      } //get Rhyme word closing
+            $('#rhymeSchemeA3').append(rhymeSchemeResultsA_dropdown);
+          }); // END .done
+      }; //get Rhyme word closing
 
     } else {
       console.log("checkbox deselected");
     }
-  });
+  }); // END #limerick_stanzaLine1checkbox
+// Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+$("#limerick_stanzaLine3checkbox").change(function() {
+    if ($(this).prop('checked') === true) {
+
+      var timeout;
+      var delay = 2000; // 2 seconds
+
+      $('#limerick_stanzaLine3').keyup(function(e) {
+        console.log("typing started");
+        if (timeout) {
+          clearTimeout(timeout);
+        }
+        timeout = setTimeout(function() {
+          lastWordOfLine().then(function(wordB) {
+
+            getWordRhymes(wordB);
+
+          });
+
+        }, delay);
+      });
+
+      $("#limerick_stanzaLine3")
+        .keyup(function() {
+          var valueB = $(this).val();
+          console.log(valueB);
+          $("#testingB").text(valueB);
+        })
+        .keyup();
+
+      function lastWordOfLine() {
+        return new Promise(function(res, rej) {
+          var last_arrB = $('#testingB').text().split(' ');
+          var lasB = last_arrB[last_arrB.length - 1];
+          res(lasB);
+        });
+      };
+
+      function getWordRhymes(lasB) {
+        // body...
+        console.log(lasB);
+        $.ajax({
+            method: "POST",
+            url: "/getRhymesB",
+            data: { wordB: lasB }
+          })
+          .done(function(data) {
+            console.log(data);
+            var rhymeSchemeResultsB = data;
+            var parsedRhymeSchemeResultsB = jQuery.parseJSON(rhymeSchemeResultsB);
+            // console.log(typeof parsedRhymeSchemeResultsB);
+            // console.log(parsedRhymeSchemeResultsB);
+            var rhymeSchemeResultsB_dropdown = '';
+            for (var j = 0; j < parsedRhymeSchemeResultsB.length; j++) {
+              console.log(parsedRhymeSchemeResultsB[j]);
+              rhymeSchemeResultsB_dropdown += '<option value="' + parsedRhymeSchemeResultsB[j].word + '">' + parsedRhymeSchemeResultsB[j].word + '</option>';
+            }
+            $('#rhymeSchemeB1').append(rhymeSchemeResultsB_dropdown);
+            $('#rhymeSchemeB2').append(rhymeSchemeResultsB_dropdown);
+          }); // END .done
+      }; //get Rhyme word closing
+
+    } else {
+      console.log("checkbox deselected");
+    }
+  }); // END #limerick_stanzaLine1checkbox
+// Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 }); // END $document.ready
