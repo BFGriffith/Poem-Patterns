@@ -9,27 +9,9 @@ var uristring =
 
 console.log(uristring)
 
-mongoose.createConnection(uristring, function (err, res) {
-      if (err) {
-      console.log ('ERROR connecting to: ' + uristring + '. ' + err);
-      } else {
-      console.log ('Succeeded connected to: ' + uristring + "Hello");
-      }
-    });
-
+mongoose.connect(uristring);
 var db = mongoose.connection;
-
+db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('Mongoose connection successful.')
+  console.log("MongoDB connected");
 });
-// mongoose.connect(database.url); // connect to mongoDB database
-
-// connection.connect(function(err) {
-//     if (err) {
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
-//     console.log('connected as id ' + connection.threadId);
-// });
-
-// module.exports = connection;

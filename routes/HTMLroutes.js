@@ -1,39 +1,23 @@
-var UserModel = require('../models/poet.js');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+// var fs = require('fs');
+//var passport = require('passport');
+//var LocalStrategy = require('passport-local').Strategy;
 // var orm = require('../config/orm.js');
-var database = require('../controllers/poetryAnthologiesController.js');
 // var db = mongoose(uristring, ['poets']);
 
 // ROUTES: Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 var express = require('express');
-var router = express.Router();
-var poems = require('../models/poems.js');
+// load all Mongoose Schemas in the models directory
+// fs.readdirSync(__dirname + '../models').forEach(function(filename){
+//   if (~filename.indexOf('.js')) require(__dirname + '../models/' + filename)
+// });
+var mongo = require('mongodb');
+var assert = require('assert');
+require('../config/connection.js');
 
-router.get('/', function(req, res) {
-  res.render('index', {});
-});
-router.get('/anthology', function(req, res) {
-  res.render('anthology', {});
-});
-router.get('/aboutPoementor', function(req, res) {
-  res.render('aboutPoementor', {});
-});
-router.get('/poemSelector', function(req, res) {
-  res.render('poemSelector', {});
-});
-router.get('/learnMetricalFeet', function(req, res) {
-  res.render('learnMetricalFeet', {});
-});
-router.get('/haiku', function(req, res) {
-  res.render('haiku', {});
-});
-router.get('/limerick', function(req, res) {
-  res.render('limerick', {});
-});
-router.get('/shakespearean', function(req, res) {
-  res.render('shakespearean', {});
-});
+var UserModel = require('../models/poet.js');
+var PoemModel = require('../models/poems.js');
+
+// var database = require('../controllers/poetryAnthologiesController.js');
 
 
 //Setting the strategy for Passport
@@ -67,24 +51,53 @@ passport.deserializeUser(function(user, done) {
 */
 
 module.exports = function(app) {
-  //GETs
+
+  // testing logger for router's requests
+  app.use(function(req, res, next) {
+    console.log('%s %s %s', req.method, req.url, req.path);
+    next();
+  });
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+
   app.get('/', function(req, res) {
     res.render('index', {
-      welcomeText: "Sign In",
       actionBtn: 'signin',
       message: req.flash('error')[0],
-      otherAction: "Signup"
+      otherAction: "signup"
+    });
+  });
+  app.get('/anthology', function(req, res) {
+    res.render('anthology', {}); // { poems: poemsArray }
+  });
+  app.get('/aboutPoementor', function(req, res) {
+    res.render('aboutPoementor', {});
+  });
+  app.get('/poemSelector', function(req, res) {
+    res.render('poemSelector', {});
+  });
+  app.get('/learnMetricalFeet', function(req, res) {
+    res.render('learnMetricalFeet', {});
+  });
+  app.get('/haiku', function(req, res) {
+    res.render('haiku', {});
+  });
+  app.get('/limerick', function(req, res) {
+    res.render('limerick', {});
+  });
+  app.get('/shakespearean', function(req, res) {
+    res.render('shakespearean', {});
+  });
+
+  //GETs
+  app.get('/users', function(req, res) {
+    mongoose.model('users').findOne(function(err, users) {
+      res.send(users);
     });
   });
 
   app.get('/signin', function(req, res) {
-    res.redirect('/')
-  });
-
-  app.get('/signup', function(req, res) {
     res.render('index', {
-      signupBtn: 'signup',
-      signinBtn: "signin"
+      signinBtn: 'signin'
     });
   });
 
@@ -103,10 +116,39 @@ module.exports = function(app) {
     res.redirect('/');
   });
 
-  //POSTs
-  //  app.post('/signin', passport.authenticate('local',{failureRedirect:'/', failureFlash:'Wrong Username or Password'}), function(req, res){
+  app.get('poetryAnthology', function(req, res, next) {
+    var poemsArray = [];
+    mongo.connect(uristring, function(err, db) {
+      assert.equal(null, err);
+      var cursor = db.collection('poems').find();
+      cursor.forEach(function(doc, err) {
+        assert.equal(null, err);
+        poemsArray.push(doc);
+      }, function() {
+        db.close();
+        res.render('anthology', { poems: poemsArray });
+      });
+    })
+  }); // END poetryAnthology
+
+  // FULL CRUD attempt Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+
+
+
+
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+  // POSTs
   app.post('/signin', function(req, res) {
     console.log(req.body);
+
+    //findOne if 
+    // 
+
+    if (req.body.username) {
+      res.json(res.user);
+    } else {
+      res.send("login successful");
+    }
     // function authenticate(name, pass, fn) {
     //   db.Poet.findOne({ username: name }, function(err, user) {
     //     if (!user) return fn(new Error('cannot find that poet in our anthologies'));
@@ -125,20 +167,33 @@ module.exports = function(app) {
     //UserModel.find()
 
 
-  });
+  }); // END signin
 
   app.post('/signup', function(req, res) {
-    //Here make the same function to check if the usename exist
+    //Here make the same function to check if the username exist
     // if is does then let them know its taken,
     // if it doesnt then go head and make the account.
-
     var userInfo = req.body;
     var newUser = new UserModel(userInfo);
-    newUser.save(function (err, data) {
+    newUser.save(function(err, data) {
       if (err) return console.error(err);
       res.json(data);
     });
 
 
-  });
-};
+  }); // END signup
+
+  app.post('/savePoem', function(req, res, next) {
+    var poemInfo = req.body;
+    console.log(req.body);
+    var newPoem = new PoemModel(poemInfo);
+    newPoem.save(function(err, data) {
+      if (err) return console.error(err);
+      res.json(data);
+    });
+    res.redirect('/anthology');
+  }); // END savePoem
+
+
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+}; // END module.exports(app)

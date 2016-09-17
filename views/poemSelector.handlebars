@@ -25,6 +25,7 @@
             </div>
           </div>
         </div>
+        <li><a href="/learnMetricalFeet">metrical “feet”</a></li>
         <li><a href="/aboutPoementor">about “Poementor”</a></li>
       </ul>
     </div>
@@ -36,6 +37,7 @@
         <div class="btn-group btn-breadcrumb">
           <a href="#" class="btn btn-default"><span style="color: #FFFFFF;">____</span></a>
           <a href="/" class="btn btn-default">HOME</a>
+          <a href="/poemSelector" class="btn btn-default">poetical form selector</a>
         </div>
       </div>
       <a href="/help" class="col-xs-1" role="button" aria-pressed="false">&#10068;</a>
@@ -44,6 +46,7 @@
   </div>
 
     <!-- POEM SELECTION Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+  <div class="container-fluid">
     <h1 class="text-center">poetical forms selection:</h1>
     <!-- poetical forms LIST -->
     <div class="list-group">
@@ -60,8 +63,11 @@
           <div class="caption">
             <h3>haiku &#20467;&#21477;</h3>
             <p>17 “morae” &mu;</p>
-            <p><a href="#" class="btn btn-default" role="button">read haiku</a>
-              <a href="#" class="btn btn-default" role="button">compose haiku</a></p>
+            <form class="form-horizontal" id="newHaiku_creator" method="POST" action="/haiku">
+            <input type="text" class="form-control text-center poemTitleCreator" id="newHaikuTitle_input" placeholder="title for new haiku">
+            <p style="background-color: #FFFFFF;"><br><a href="/anthology" class="btn btn-default" role="button">read haiku</a>
+            <button class="btn btn-default" role="button" type="submit">compose haiku</button></p>
+            </form>
           </div>
         </div>
       </div>
@@ -72,8 +78,11 @@
           <div class="caption">
             <h3>limerick</h3>
             <p>anapestic</p>
-            <p><a href="#" class="btn btn-default" role="button">read limerick</a>
-              <a href="#" class="btn btn-default" role="button">compose limerick</a></p>
+            <form class="form-horizontal" id="newLimerick_creator" method="POST" action="/limerick">
+            <input type="text" class="form-control text-center poemTitleCreator" id="newLimerickTitle_input" placeholder="title for new limerick">
+            <p style="background-color: #FFFFFF;"><br><a href="/anthology" class="btn btn-default" role="button">read limericks</a>
+            <button class="btn btn-default" role="button" type="submit">compose limerick</button></p>
+            </form>
           </div>
         </div>
       </div>
@@ -84,8 +93,11 @@
           <div class="caption">
             <h3>Shakespearean sonnet</h3>
             <p>iambic pentameter</p>
-            <p><a href="#" class="btn btn-default" role="button">read sonnet</a>
-              <a href="#" class="btn btn-default" role="button">compose sonnet</a></p>
+            <form class="form-horizontal" id="newShakespearean_creator" method="POST" action="/shakespearean">
+            <input type="text" class="form-control text-center poemTitleCreator" id="newShakespeareanTitle_input" placeholder="title for new Shakespearean sonnet">
+            <p style="background-color: #FFFFFF;"><br><a href="/anthology" class="btn btn-default" role="button">read sonnets</a>
+            <button class="btn btn-default" role="button" type="submit">compose sonnet</button></p>
+            </form>
           </div>
         </div>
       </div>

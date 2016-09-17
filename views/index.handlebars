@@ -25,6 +25,7 @@
           </div>
         </div>
       </div>
+      <li><a href="/learnMetricalFeet">metrical “feet”</a></li>
       <li><a href="/aboutPoementor">about “Poementor”</a></li>
     </ul>
   </div>
@@ -45,16 +46,16 @@
 <!-- WELCOME Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
 <div class="container-fluid" id="welcomeHomepage">
   <h1 class="text-center" id="Poementor_welcome_header">WELCOME to “Poementor”</h1>
-    <!-- LOGIN Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+<!-- LOGIN Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
 <form class="form-inline text-center">
   <div class="form-group authInputs">
-    <input id="username" name="username" placeholder="username" />
+    <input id="username" type="text" name="username" placeholder="username" />
   </div>
   <div class="form-group authInputs">
     <input id="password" type="password" name="password" placeholder="password" />
   </div>
   <div class="form-group text-center">
-    <button class="btn btn-info pull-center" type="submit" id="submitUser">LOGIN</button>
+    <a href="/signin" class="btn btn-info pull-center" id="submitUser">LOGIN</a>
   </div>
   <div class="form-group text-center">
     <a href="/signup" class="btn btn-success pull-center" id="createUser">SIGNUP</a>
@@ -76,7 +77,7 @@
 <!-- navigation tabs »»——————————————————► -->
 <div class="row">
   <div class="col-xs-12">
-    <ul class="nav nav-tabs nav-center">
+    <ul class="nav nav-tabs centeredNav" id="navigationTabs">
       <li class="active"><a href="/">HOME</a></li>
       <li><a href="/anthology">my ANTHOLOGY</a></li>
       <li class="dropdown">
@@ -92,48 +93,49 @@
     </ul>
   </div>
 </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="text-center">currently supported poetical forms:</h3></div>
-      <div class="panel-body">
-        <p>Poementor strives to support an increasing variety of poetical forms, with the eventual goal of supporting most historically and traditionally popular forms.</p>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="text-center">currently supported poetical forms:</h3>
     </div>
-    <!-- poetical forms TABLE -->
-    <div class="row">
-      <div class="col-xs-12">
-        <table class="well table" id="poetical_forms_TABLE">
-          <thead>
-            <tr id="poetical_forms_TABLEhead">
-              <th>poetical forms:</th>
-              <th>traditionally predominant meter:</th>
-              <th>rhyme-scheme:</th>
-              <th>originating/popularizing culture:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>haiku &#20467;&#21477;</td>
-              <td>17 “morae” &mu;</td>
-              <td>none</td>
-              <td>Japanese</td>
-            </tr>
-            <tr>
-              <td>limerick</td>
-              <td>anapestic</td>
-              <td>AABBA</td>
-              <td>English</td>
-            </tr>
-            <tr>
-              <td>Shakespearean sonnet</td>
-              <td>iambic pentameter</td>
-              <td>ABAB CDCD EFEF GG</td>
-              <td>English</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="panel-body">
+      <p>Poementor strives to support an increasing variety of poetical forms, with the eventual goal of supporting most historically and traditionally popular forms.</p>
     </div>
-    <!-- Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
   </div>
-  <!-- END container -->
+  <!-- poetical forms TABLE -->
+  <div class="row">
+    <div class="col-xs-12">
+      <table class="well table" id="poetical_forms_TABLE">
+        <thead>
+          <tr id="poetical_forms_TABLEhead">
+            <th>poetical forms:</th>
+            <th>traditionally predominant meter:</th>
+            <th>rhyme-scheme:</th>
+            <th>originating/popularizing culture:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>haiku &#20467;&#21477;</td>
+            <td>17 “morae” &mu;</td>
+            <td>none</td>
+            <td>Japanese</td>
+          </tr>
+          <tr>
+            <td>limerick</td>
+            <td>anapestic</td>
+            <td>AABBA</td>
+            <td>English</td>
+          </tr>
+          <tr>
+            <td>Shakespearean sonnet</td>
+            <td>iambic pentameter</td>
+            <td>ABAB CDCD EFEF GG</td>
+            <td>English</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ> -->
+</div>
+<!-- END container -->

@@ -2,10 +2,9 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var HaikuSchema = new Schema({
-  user: String,
-	poets: Array,
 	haikuPoems: Array,
-  annotations: Array
+  annotations: Array,
+  user: Schema.ObjectId
 });
 
 module.exports = mongoose.model('Haiku', HaikuSchema);

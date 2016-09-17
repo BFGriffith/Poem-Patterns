@@ -1,6 +1,6 @@
 {
   "name": "Poementor",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "BFGriffith",
   "description": "a “full-stack” web-application for aspiring poets and lyricists that streamlines composing, editing, annotating, storing, and sharing all sorts of verse — as well as providing dynamic templating, modeling, and tutorial functionalities that conveniently aid writers in more easily conforming to various traditional poetical forms, metrical prosody structures, rhyme-schemes, etc.",
   "homepage": "https://github.com/BFGriffith/Poem-Patterns#readme",
@@ -39,6 +39,7 @@
     "express-handlebars": "^2.0.1",
     "express-session": "^1.14.1",
     "method-override": "^2.3.6",
+    "mongodb": "^2.2.10",
     "mongoose": "^4.5.10",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
