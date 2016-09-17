@@ -52,6 +52,13 @@ passport.deserializeUser(function(user, done) {
 
 module.exports = function(app) {
 
+  // testing logger for router's requests
+  app.use(function(req, res, next) {
+    console.log('%s %s %s', req.method, req.url, req.path);
+    next();
+  });
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+
   app.get('/', function(req, res) {
     res.render('index', {
       actionBtn: 'signin',
@@ -60,7 +67,7 @@ module.exports = function(app) {
     });
   });
   app.get('/anthology', function(req, res) {
-    res.render('anthology', {poems: poemsArray});
+    res.render('anthology', {}); // { poems: poemsArray }
   });
   app.get('/aboutPoementor', function(req, res) {
     res.render('aboutPoementor', {});
@@ -109,21 +116,27 @@ module.exports = function(app) {
     res.redirect('/');
   });
 
-  app.get('poetryAnthology', function(req, res, next){
+  app.get('poetryAnthology', function(req, res, next) {
     var poemsArray = [];
-    mongo.connect(uristring, function(err, db){
+    mongo.connect(uristring, function(err, db) {
       assert.equal(null, err);
       var cursor = db.collection('poems').find();
-      cursor.forEach(function(doc, err){
+      cursor.forEach(function(doc, err) {
         assert.equal(null, err);
         poemsArray.push(doc);
-      }, function(){
+      }, function() {
         db.close();
-        res.render('anthology', {poems: poemsArray});
+        res.render('anthology', { poems: poemsArray });
       });
     })
   }); // END poetryAnthology
 
+  // FULL CRUD attempt Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+
+
+
+
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
   // POSTs
   app.post('/signin', function(req, res) {
     console.log(req.body);
@@ -170,11 +183,11 @@ module.exports = function(app) {
 
   }); // END signup
 
-  app.post('/savePoem', function(req, res, next){
+  app.post('/savePoem', function(req, res, next) {
     var poemInfo = req.body;
     console.log(req.body);
     var newPoem = new PoemModel(poemInfo);
-    newPoem.save(function(err, data){
+    newPoem.save(function(err, data) {
       if (err) return console.error(err);
       res.json(data);
     });
@@ -182,5 +195,5 @@ module.exports = function(app) {
   }); // END savePoem
 
 
-// Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 }; // END module.exports(app)

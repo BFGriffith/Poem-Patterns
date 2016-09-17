@@ -12,7 +12,12 @@ $(document).ready(function() {
           clearTimeout(timeout);
         }
         timeout = setTimeout(function() {
-          lastWordOfLine();
+          lastWordOfLine().then(function(word) {
+
+            getWordRhymes(word);
+
+          });
+
         }, delay);
       });
 
@@ -25,16 +30,33 @@ $(document).ready(function() {
         .keyup();
 
       function lastWordOfLine() {
-        var last_arr = $('#testing').text().split(' ');
-        var las = last_arr[last_arr.length - 1];
-        console.log(las);
-        return las;
-      }
-
-      setTimeout(function(las) {
-        $.getJSON(("http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las + "?callback=?"), function(json) {
-          console.log(json);
+        return new Promise(function(res, rej) {
+          var last_arr = $('#testing').text().split(' ');
+          var las = last_arr[last_arr.length - 1];
+          res(las);
         });
+      };
+
+      function getWordRhymes(las) {
+        // body...
+        console.log(las);
+        $.ajax({
+            method: "POST",
+            url: "/getRhymes",
+            data: { word: las }
+          })
+          .done(function(data) {
+            // console.log(data);
+            var rhymeSchemeResultsA = data;
+            console.log(rhymeSchemeResultsA);
+
+          });
+
+
+
+        // $.getJSON(("http://rhymebrain.com/talk?function=getRhymes&lang=en&jsonp&word=" + las + "?callback=?"), function(json) {
+        //   console.log(json);
+        // });
         /*
           function logResults(json) {
             console.log(json);
@@ -64,7 +86,8 @@ $(document).ready(function() {
         });
         */
 
-      }, 1000);
+
+      } //get Rhyme word closing
 
     } else {
       console.log("checkbox deselected");
