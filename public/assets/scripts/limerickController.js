@@ -1,4 +1,14 @@
 $(document).ready(function() {
+
+  $('.poemLine').keypress(function(enterEvent) {
+    var keycode = (enterEvent.keyCode ? enterEvent.keyCode : enterEvent.which);
+    if (keycode == '13') {
+      // $( "#x" ).prop( "checked", true );
+      alert('You pressed a "enter" key in textbox');
+    }
+    enterEvent.stopPropagation();
+  }); // END .poemLine
+
   //console.log("ready!");
   $("#limerick_stanzaLine1checkbox").change(function() {
     if ($(this).prop('checked') === true) {
@@ -66,8 +76,8 @@ $(document).ready(function() {
       console.log("checkbox deselected");
     }
   }); // END #limerick_stanzaLine1checkbox
-// Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
-$("#limerick_stanzaLine3checkbox").change(function() {
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+  $("#limerick_stanzaLine3checkbox").change(function() {
     if ($(this).prop('checked') === true) {
 
       var timeout;
@@ -131,6 +141,51 @@ $("#limerick_stanzaLine3checkbox").change(function() {
     } else {
       console.log("checkbox deselected");
     }
-  }); // END #limerick_stanzaLine1checkbox
-// Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
+  }); // END #limerick_stanzaLine3checkbox
+  // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 }); // END $document.ready
+
+// NEW limerick archiving
+$('#limerick_template').on('click', addLimerick);
+
+function addLimerick(event) {
+  event.preventDefault();
+  // basic validation - increase errorCount variable if any fields are blank
+  var errorCount = 0;
+  $('#limerick_template input').each(function(index, val) {
+    if ($(this).val() === '') { errorCount++; }
+  });
+  // check if errorCount is zero
+  if (errorCount === 0) {
+    // compile limerick into object
+    var newLimerick = {
+      'limerickLine1': $('#limerick_template fieldset input#limerick_stanzaLine1').val(),
+      'limerickLine2': $('#limerick_template fieldset input#limerick_stanzaLine2').val(),
+      'limerickLine3': $('#limerick_template fieldset input#limerick_stanzaLine3').val(),
+      'limerickLine4': $('#limerick_template fieldset input#limerick_stanzaLine4').val(),
+      'limerickLine5': $('#limerick_template fieldset input#limerick_stanzaLine5').val()
+    }
+    console.log(newLimerick);
+    // AJAX post
+    $.ajax({
+      type: 'POST',
+      data: newLimerick,
+      url: '/limericks/addLimerick',
+      dataType: 'JSON'
+    }).done(function(response) {
+      // check for successful (blank) response
+      if (response.msg === '') {
+        // clear form inputs
+        $('#limerick_template fieldset input').val('');
+        // Update the table
+        populateTable();
+      } else {
+        alert('Error: ' + response.msg);
+      }
+    }); // END .done
+  } else {
+    // if errorCount is > 0, output error
+    alert('Please complete the stanza.');
+    return false;
+  }
+}; // END addLimerick

@@ -4,7 +4,7 @@ var request = require('request');
 module.exports = function(app) {
   // rhymes
   app.post('/getRhymes', function(req, res, next) {
-  	console.log(req.body);
+    console.log(req.body);
     request('http://rhymebrain.com/talk?function=getRhymes&lang=en&word=' + req.body.word, function(error, response, body) {
       if (error) {
         return console.log('Error:', error);
@@ -14,12 +14,12 @@ module.exports = function(app) {
         return console.log('Invalid status-code returned: ', response.statusCode);
       }
       console.log(body);
-       res.send(body);
+      res.send(body);
     }); // END request
-  }); // END app.get
+  }); // END app.post
 
-app.post('/getRhymesB', function(req, res, next) {
-  	console.log(req.body);
+  app.post('/getRhymesB', function(req, res, next) {
+    console.log(req.body);
     request('http://rhymebrain.com/talk?function=getRhymes&lang=en&word=' + req.body.wordB, function(error, response, body) {
       if (error) {
         return console.log('Error:', error);
@@ -29,9 +29,19 @@ app.post('/getRhymesB', function(req, res, next) {
         return console.log('Invalid status-code returned: ', response.statusCode);
       }
       console.log(body);
-       res.send(body);
+      res.send(body);
     }); // END request
-  }); // END app.get
+  }); // END app.post
+
+  app.post('limericks/addLimerick', function(req, res) {
+    var db = req.db;
+    var collection = db.get('limerickList');
+    collection.insert(req.body, function(err, result) {
+      res.send(
+        (err === null) ? { msg: '' } : { msg: err }
+      );
+    });
+  });
 
   // app.get('/getRhymes', function(req, res) {
   //   req.logout();
