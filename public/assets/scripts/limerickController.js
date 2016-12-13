@@ -4,7 +4,7 @@ $(document).ready(function() {
     var keycode = (enterEvent.keyCode ? enterEvent.keyCode : enterEvent.which);
     if (keycode == '13') {
       // $( "#x" ).prop( "checked", true );
-      alert('You pressed a "enter" key in textbox');
+      console.log('You pressed a "enter" key in textbox');
     }
     enterEvent.stopPropagation();
   }); // END .poemLine
@@ -145,47 +145,55 @@ $(document).ready(function() {
   // Ø₪₪₪₪§╣ΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞΞ>
 }); // END $document.ready
 
-// NEW limerick archiving
-$('#limerick_template').on('click', addLimerick);
 
-function addLimerick(event) {
-  event.preventDefault();
-  // basic validation - increase errorCount variable if any fields are blank
-  var errorCount = 0;
-  $('#limerick_template input').each(function(index, val) {
-    if ($(this).val() === '') { errorCount++; }
-  });
-  // check if errorCount is zero
-  if (errorCount === 0) {
-    // compile limerick into object
-    var newLimerick = {
-      'limerickLine1': $('#limerick_template fieldset input#limerick_stanzaLine1').val(),
-      'limerickLine2': $('#limerick_template fieldset input#limerick_stanzaLine2').val(),
-      'limerickLine3': $('#limerick_template fieldset input#limerick_stanzaLine3').val(),
-      'limerickLine4': $('#limerick_template fieldset input#limerick_stanzaLine4').val(),
-      'limerickLine5': $('#limerick_template fieldset input#limerick_stanzaLine5').val()
-    }
-    console.log(newLimerick);
-    // AJAX post
-    $.ajax({
-      type: 'POST',
-      data: newLimerick,
-      url: '/limericks/addLimerick',
-      dataType: 'JSON'
-    }).done(function(response) {
-      // check for successful (blank) response
-      if (response.msg === '') {
-        // clear form inputs
-        $('#limerick_template fieldset input').val('');
-        // Update the table
-        populateTable();
-      } else {
-        alert('Error: ' + response.msg);
+// NEW limerick archiving
+$(document).ready(function() {
+
+  $('#limerick_template').on('submit', addLimerick);
+
+  function addLimerick(event) {
+    event.preventDefault();
+    // basic validation - increase errorCount variable if any fields are blank
+    var errorCount = 0;
+    $('#limerick_template input').each(function(index, val) {
+      if ($(this).val() === '') { errorCount++; }
+    });
+    // check if errorCount is zero
+    if (errorCount === 0) {
+      // compile limerick into object
+      var newLimerick = {
+        'limerickLine1': $('#limerick_stanzaLine1').val(),
+        'limerickLine2': $('#limerick_stanzaLine2').val(),
+        'limerickLine3': $('#limerick_stanzaLine3').val(),
+        'limerickLine4': $('#limerick_stanzaLine4').val(),
+        'limerickLine5': $('#limerick_stanzaLine5').val()
       }
-    }); // END .done
-  } else {
-    // if errorCount is > 0, output error
-    alert('Please complete the stanza.');
-    return false;
-  }
-}; // END addLimerick
+      console.log(newLimerick);
+      // AJAX post
+      $.ajax({
+        type: 'POST',
+        data: newLimerick,
+        url: '/limericks/addLimerick',
+        dataType: 'JSON'
+      })
+      .then(function(response) {
+        // check for successful (blank) response
+        if (response.msg === '') {
+          // clear form inputs
+          $('#limerick_template fieldset input').val('');
+          // populate the stanza into the view
+          // populateStanza();
+        }
+      })
+      .fail(function(err) {
+        console.log('Error: ' + err);
+      }); // END .done
+    } else {
+      // if errorCount is > 0, output error
+      console.log('Please complete the stanza.');
+      return false;
+    }
+  }; // END addLimerick
+
+}); // END $document.ready
+
